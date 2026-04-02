@@ -145,17 +145,13 @@ section[id] {
   transform: translateY(-1px);
 }
 
-.skill-group {
-  padding: 1rem;
-  border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
-  border-radius: 0.9rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0));
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+.skill-row {
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
 }
 
-.skill-group:hover {
-  border-color: color-mix(in srgb, var(--accent) 22%, var(--border));
-  background: linear-gradient(180deg, rgba(185, 137, 82, 0.05), rgba(255, 255, 255, 0.01));
+.skill-row:hover {
+  background: rgba(185, 137, 82, 0.06);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -166,6 +162,7 @@ section[id] {
   .reveal,
   .project-card,
   .experience-item,
+  .skill-row,
   .accent-link,
   .project-card-icon,
   .accent-link svg {

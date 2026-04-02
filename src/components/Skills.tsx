@@ -3,53 +3,53 @@ import Reveal from "./Reveal";
 
 const groups = [
   {
-    label: "Program & Delivery Management",
+    label: "Program & Delivery Leadership",
     items: [
-      "Technical Program Management",
-      "PI Planning & Portfolio Management",
-      "Agile / Scrum / SAFe",
+      "Large-scale program management",
+      "PI planning & SAFe delivery",
+      "Portfolio & roadmap management",
       "Risk & dependency management",
-      "Roadmap execution",
+      "Operating cadence design",
     ],
   },
   {
-    label: "Engineering Leadership",
+    label: "Engineering Management",
     items: [
-      "Engineering management & team development",
-      "Agile transformation",
-      "Cross-functional alignment",
-      "Remote & distributed teams",
+      "Engineering team leadership",
       "Hiring & performance management",
+      "Technical debt strategy",
+      "Incident management & SLA ownership",
+      "Team health & operating model",
     ],
   },
   {
-    label: "Cloud & Infrastructure",
+    label: "Technical Strategy & Platform",
     items: [
-      "AWS",
-      "GCP",
       "Cloud migration strategy",
       "CI/CD & DevOps",
       "Platform modernization",
+      "Distributed systems & microservices",
+      "Technical risk management",
     ],
   },
   {
-    label: "Tools & Process",
+    label: "Stakeholder & Executive Alignment",
     items: [
-      "Jira / Confluence",
-      "GitHub",
-      "Incident management",
-      "Stakeholder communication",
-      "Technical debt reduction",
+      "Executive communication",
+      "Cross-org prioritization",
+      "Capacity planning & cut-line framing",
+      "Engineering-to-business translation",
+      "Global distributed team leadership",
     ],
   },
   {
-    label: "Applied AI",
+    label: "Applied AI & Automation",
     items: [
-      "ChatGPT and Claude",
-      "LLM API integration",
-      "AI-assisted delivery workflows",
-      "Prompt and output quality management",
-      "Outcome-focused AI adoption",
+      "LLM integration & API workflows",
+      "AI-augmented delivery & analysis",
+      "Prompt engineering & output quality",
+      "AI adoption strategy",
+      "LLM feasibility evaluation",
     ],
   },
 ];
@@ -60,19 +60,30 @@ export default function Skills() {
       <Reveal>
         <SectionHeader>Skills</SectionHeader>
       </Reveal>
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      <div className="mt-5" style={{ display: "flex", flexDirection: "column" }}>
         {groups.map((g, index) => (
-          <Reveal key={g.label} delay={index * 45} className="skill-group">
-            <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "0.7rem", letterSpacing: "0.02em" }}>
-              {g.label}
-            </p>
-            <ul style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
-              {g.items.map((item) => (
-                <li key={item} style={{ fontSize: "0.9rem", color: "var(--text-secondary)", lineHeight: 1.55 }}>
-                  {item}
-                </li>
-              ))}
-            </ul>
+          <Reveal key={g.label} delay={index * 45}>
+            <div style={{ borderBottom: index < groups.length - 1 ? "1px solid color-mix(in srgb, var(--border) 50%, transparent)" : "none" }}>
+              <div
+                className="skill-row flex flex-col sm:flex-row sm:gap-8"
+                style={{ padding: "1rem 0.75rem", margin: "0 -0.75rem", gap: "0.4rem" }}
+              >
+                <div className="shrink-0 sm:w-44" style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem" }}>
+                  <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--accent)", flexShrink: 0, marginTop: "0.32rem" }} />
+                  <p style={{ fontSize: "0.72rem", fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.08em", textTransform: "uppercase", margin: 0, lineHeight: 1.45 }}>
+                    {g.label}
+                  </p>
+                </div>
+                <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)", lineHeight: 1.65, margin: 0 }}>
+                  {g.items.map((item, i) => (
+                    <span key={item}>
+                      {i > 0 && <span style={{ color: "var(--accent)", opacity: 0.6, margin: "0 0.38em" }}>·</span>}
+                      {item}
+                    </span>
+                  ))}
+                </p>
+              </div>
+            </div>
           </Reveal>
         ))}
       </div>

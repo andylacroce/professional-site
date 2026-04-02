@@ -27,13 +27,10 @@ Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template
 
 ## Structure
 
-```
+```text
 public/
 ├── logos/               # Company logos used in Experience
 └── profile-pic.jpg      # Hero image and favicon source
-
-scripts/
-└── download-logos.mjs   # Utility script for logo asset fetching
 
 src/
 ├── app/
@@ -45,7 +42,7 @@ src/
     ├── Hero.tsx           # Headline, summary, profile image, social links
     ├── About.tsx          # Professional summary
     ├── Experience.tsx     # Role history with editorial card treatment
-    ├── Skills.tsx         # Grouped skill categories including applied AI
+    ├── Skills.tsx         # Grouped skill categories
     ├── Projects.tsx       # Featured project cards
     ├── Contact.tsx        # Contact links and footer note
     ├── Reveal.tsx         # Reusable scroll-reveal wrapper

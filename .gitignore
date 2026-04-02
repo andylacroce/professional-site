@@ -1,9 +1,16 @@
 # dependencies
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Next.js build output
 .next/
 out/
+.vercel/
+.turbo/
+coverage/
 
 # environment variables
 .env
@@ -18,6 +25,10 @@ images/
 # OS
 .DS_Store
 Thumbs.db
+
+# editors
+.vscode/
+.idea/
 
 # TypeScript
 next-env.d.ts

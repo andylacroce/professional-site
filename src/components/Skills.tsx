@@ -69,7 +69,7 @@ export default function Skills() {
                 style={{ padding: "1rem 0.75rem", margin: "0 -0.75rem", gap: "0.4rem" }}
               >
                 <div className="shrink-0 sm:w-44" style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem" }}>
-                  <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--accent)", flexShrink: 0, marginTop: "0.32rem" }} />
+                  <span style={{ color: "var(--accent)", fontSize: "0.5em", flexShrink: 0, marginTop: "0.38rem", lineHeight: 1 }}>✦</span>
                   <p style={{ fontSize: "0.72rem", fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.08em", textTransform: "uppercase", margin: 0, lineHeight: 1.45 }}>
                     {g.label}
                   </p>

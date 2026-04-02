@@ -181,7 +181,7 @@ export default function Experience() {
                               key={bulletIndex}
                               style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.72, paddingLeft: "0.75rem", position: "relative" }}
                             >
-                              <span style={{ position: "absolute", left: 0, color: "var(--accent)" }}>·</span>
+                              <span style={{ position: "absolute", left: 0, color: "var(--accent)", fontSize: "0.6em", top: "0.45em" }}>✦</span>
                               {bullet}
                             </li>
                           ))}

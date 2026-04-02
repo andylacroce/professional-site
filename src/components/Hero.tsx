@@ -41,7 +41,7 @@ export default function Hero() {
                 fontWeight: 500,
               }}
             >
-              Technical Program Manager / Engineering Manager
+              Technical Program Manager{" "}<span style={{ color: "var(--accent)" }}>✦</span>{" "}Engineering Manager
             </p>
           </div>
 

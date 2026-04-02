@@ -1,10 +1,28 @@
 import type { Metadata } from "next";
+import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
+
+const bodyFont = Manrope({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
+});
+
+const displayFont = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Andrew Lacroce — Engineering Leader",
   description:
     "Engineering leader with 20+ years delivering complex software programs. Targeting TPM and EM roles.",
+  icons: {
+    icon: "/profile-pic.jpg",
+    apple: "/profile-pic.jpg",
+    shortcut: "/profile-pic.jpg",
+  },
   openGraph: {
     title: "Andrew Lacroce — Engineering Leader",
     description:
@@ -22,7 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${bodyFont.variable} ${displayFont.variable}`}>{children}</body>
     </html>
   );
 }

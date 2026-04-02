@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <main className="max-w-3xl mx-auto px-6 pb-24">
+      <main className="max-w-3xl mx-auto px-4 sm:px-6 pb-20 sm:pb-24">
         <Hero />
         <About />
         <Experience />

@@ -1,84 +1,95 @@
 import Image from "next/image";
+import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section className="pt-20 pb-16 flex flex-col gap-6">
-      <Image
-        src="/profile-pic.jpg"
-        alt="Andrew Lacroce"
-        width={72}
-        height={72}
-        className="rounded-full"
-        style={{ border: "2px solid var(--border)" }}
-        priority
-      />
+    <section id="home" className="pt-14 sm:pt-20 pb-12 sm:pb-16">
+      <div className="flex flex-col lg:flex-row lg:items-center gap-6 sm:gap-7 lg:gap-10">
+        <Reveal delay={40} className="w-fit shrink-0">
+          <a href="/profile-pic.jpg" target="_blank" rel="noopener noreferrer" className="w-fit shrink-0">
+            <Image
+              src="/profile-pic.jpg"
+              alt="Andrew Lacroce"
+              width={220}
+              height={220}
+              className="rounded-full w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 transition-opacity hover:opacity-90"
+              style={{ border: "2px solid var(--border)" }}
+              priority
+            />
+          </a>
+        </Reveal>
 
-      <div>
-        <h1
-          style={{
-            fontSize: "clamp(2rem, 5vw, 2.75rem)",
-            fontWeight: 700,
-            letterSpacing: "-0.04em",
-            lineHeight: 1.1,
-            color: "var(--text-primary)",
-          }}
-        >
-          Andrew Lacroce
-        </h1>
-        <p
-          style={{
-            fontSize: "1.125rem",
-            color: "var(--accent-light)",
-            marginTop: "0.375rem",
-            fontWeight: 500,
-          }}
-        >
-          Engineering Leader · TPM / EM
-        </p>
-      </div>
+        <Reveal delay={120} className="max-w-2xl flex flex-col gap-4 sm:gap-5">
+          <div>
+            <h1
+              className="font-display"
+              style={{
+                fontSize: "clamp(2rem, 5vw, 2.75rem)",
+                fontWeight: 700,
+                letterSpacing: "-0.04em",
+                lineHeight: 1.1,
+                color: "var(--text-primary)",
+              }}
+            >
+              Andrew Lacroce
+            </h1>
+            <p
+              style={{
+                fontSize: "1.125rem",
+                color: "var(--accent-light)",
+                marginTop: "0.375rem",
+                fontWeight: 500,
+              }}
+            >
+              Engineering Leader · TPM / EM
+            </p>
+          </div>
 
-      <p
-        style={{
-          fontSize: "1.05rem",
-          color: "var(--text-secondary)",
-          maxWidth: "44ch",
-          lineHeight: 1.6,
-        }}
-      >
-        20+ years driving delivery across engineering, product, and business
-        teams. I build the planning frameworks, team structures, and delivery
-        cultures that let engineers do their best work.
-      </p>
+          <p
+            style={{
+              fontSize: "1rem",
+              color: "var(--text-secondary)",
+              maxWidth: "62ch",
+              lineHeight: 1.6,
+            }}
+          >
+            20+ years driving delivery across engineering, product, and business
+            teams. I build the planning frameworks, team structures, and delivery
+            cultures that let engineers do their best work, and I apply AI tools
+            pragmatically to improve speed, decision quality, and delivery outcomes.
+          </p>
 
-      <div className="flex items-center gap-5 flex-wrap">
-        <a
-          href="https://www.linkedin.com/in/andrew-lacroce/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}
-          className="flex items-center gap-1.5 hover:text-white transition-colors"
-        >
-          <LinkedInIcon />
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/andylacroce"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}
-          className="flex items-center gap-1.5 hover:text-white transition-colors"
-        >
-          <GitHubIcon />
-          GitHub
-        </a>
-        <a
-          href="mailto:andrew+work@andrewlacroce.com"
-          style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}
-          className="flex items-center gap-1.5 hover:text-white transition-colors"
-        >
-          <EmailIcon />
-          andrew+work@andrewlacroce.com
-        </a>
+          <div className="flex items-center gap-x-5 gap-y-2 flex-wrap">
+            <a
+              href="https://www.linkedin.com/in/andrew-lacroce/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}
+              className="accent-link flex items-center gap-1.5"
+            >
+              <LinkedInIcon />
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/andylacroce"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}
+              className="accent-link flex items-center gap-1.5"
+            >
+              <GitHubIcon />
+              GitHub
+            </a>
+            <a
+              href="mailto:andrew+work@andrewlacroce.com"
+              style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}
+              className="accent-link flex items-center gap-1.5 break-all"
+            >
+              <EmailIcon />
+              andrew+work@andrewlacroce.com
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

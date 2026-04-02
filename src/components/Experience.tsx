@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
 
 const roles = [
   {
@@ -75,16 +76,19 @@ const roles = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-16 border-t section-divider">
-      <SectionHeader>Experience</SectionHeader>
+    <section id="experience" className="py-12 sm:py-16 border-t section-divider">
+      <Reveal>
+        <SectionHeader>Experience</SectionHeader>
+      </Reveal>
       <div style={{ marginTop: "1.5rem", display: "flex", flexDirection: "column", gap: "2.5rem" }}>
-        {roles.map((role) => (
-          <div key={`${role.company}-${role.title}`} className="flex gap-6">
+        {roles.map((role, index) => (
+          <Reveal key={`${role.company}-${role.title}`} delay={index * 55}>
+            <div className="experience-item flex flex-col sm:flex-row gap-4 sm:gap-6">
             {/* Logo / dot */}
-            <div style={{ flexShrink: 0, width: "96px", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "0.15rem" }}>
+            <div className="w-[88px] sm:w-[96px]" style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "0.15rem" }}>
               <div
                 style={{
-                  width: "96px",
+                  width: "100%",
                   height: "44px",
                   borderRadius: "6px",
                   border: "1px solid var(--border)",
@@ -107,21 +111,21 @@ export default function Experience() {
             </div>
 
             <div style={{ flex: 1 }}>
-              <div className="flex items-baseline justify-between flex-wrap gap-1">
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1.5">
                 <div>
-                  <span style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "0.95rem" }}>
+                  <span className="font-display" style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "1rem", lineHeight: 1.2 }}>
                     {role.title}
                   </span>
-                  <span style={{ color: "var(--text-secondary)", fontSize: "0.875rem", marginLeft: "0.5rem" }}>
+                  <span className="block sm:inline sm:ml-2" style={{ color: "var(--text-secondary)", fontSize: "0.875rem", letterSpacing: "0.01em" }}>
                     @ {role.company}
                   </span>
                 </div>
-                <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", whiteSpace: "nowrap" }}>
+                <span style={{ fontSize: "0.75rem", color: "var(--accent-light)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   {role.dates}
                 </span>
               </div>
               {role.bullets.length > 0 && (
-                <ul style={{ marginTop: "0.6rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+                <ul style={{ marginTop: "0.75rem", display: "flex", flexDirection: "column", gap: "0.45rem" }}>
                   {role.bullets.map((b, i) => (
                     <li
                       key={i}
@@ -134,7 +138,8 @@ export default function Experience() {
                 </ul>
               )}
             </div>
-          </div>
+            </div>
+          </Reveal>
         ))}
       </div>
     </section>

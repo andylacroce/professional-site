@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0a0f;
-  --surface: #111118;
-  --border: #1e1e2e;
-  --text-primary: #e8e8f0;
-  --text-secondary: #8888a8;
-  --accent: #6366f1;
-  --accent-light: #818cf8;
+  --bg: #0a1112;
+  --surface: #10191a;
+  --surface-elevated: #152022;
+  --border: #263436;
+  --text-primary: #edf0ea;
+  --text-secondary: #93a19b;
+  --accent: #b98952;
+  --accent-light: #d9b48a;
+  --accent-soft: rgba(185, 137, 82, 0.16);
 }
 
 html {
@@ -15,10 +17,36 @@ html {
 }
 
 body {
-  background-color: var(--bg);
+  background:
+    radial-gradient(circle at top left, rgba(91, 128, 120, 0.18), transparent 34%),
+    radial-gradient(circle at top right, rgba(185, 137, 82, 0.18), transparent 28%),
+    linear-gradient(180deg, #091113 0%, #0b1415 42%, #0c1111 100%);
   color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-family: var(--font-body), sans-serif;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    radial-gradient(circle at 20% 20%, rgba(217, 180, 138, 0.08), transparent 24%),
+    radial-gradient(circle at 80% 0%, rgba(119, 153, 145, 0.08), transparent 28%);
+  background-size: 32px 32px, 32px 32px, auto, auto;
+  opacity: 0.3;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 92%);
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+  font-variation-settings: "SOFT" 40, "WONK" 0;
 }
 
 ::selection {
@@ -28,4 +56,117 @@ body {
 
 .section-divider {
   border-color: var(--border);
+}
+
+section[id] {
+  scroll-margin-top: 5.75rem;
+}
+
+.accent-link {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.accent-link:hover {
+  color: var(--accent-light) !important;
+}
+
+.accent-link svg {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.accent-link:hover svg {
+  transform: translateX(1px);
+}
+
+.project-card {
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--border));
+  background: color-mix(in srgb, var(--surface) 82%, var(--accent-soft));
+  transform: translateY(-1px);
+}
+
+.project-card-icon {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.project-card:hover .project-card-icon {
+  transform: translate(1px, -1px);
+  color: var(--accent-light) !important;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.experience-item {
+  position: relative;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0));
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.experience-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+  opacity: 0.55;
+}
+
+.experience-item:hover {
+  border-color: color-mix(in srgb, var(--accent) 24%, var(--border));
+  background: linear-gradient(180deg, rgba(185, 137, 82, 0.06), rgba(255, 255, 255, 0.01));
+  transform: translateY(-1px);
+}
+
+.skill-group {
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+  border-radius: 0.9rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0));
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.skill-group:hover {
+  border-color: color-mix(in srgb, var(--accent) 22%, var(--border));
+  background: linear-gradient(180deg, rgba(185, 137, 82, 0.05), rgba(255, 255, 255, 0.01));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .project-card,
+  .experience-item,
+  .accent-link,
+  .project-card-icon,
+  .accent-link svg {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+  }
 }

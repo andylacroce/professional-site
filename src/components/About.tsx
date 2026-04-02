@@ -1,10 +1,14 @@
 import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
 
 export default function About() {
   return (
-    <section id="about" className="py-16 border-t section-divider">
-      <SectionHeader>About</SectionHeader>
-      <div
+    <section id="about" className="py-12 sm:py-16 border-t section-divider">
+      <Reveal>
+        <SectionHeader>About</SectionHeader>
+      </Reveal>
+      <Reveal
+        delay={70}
         style={{
           color: "var(--text-secondary)",
           lineHeight: 1.75,
@@ -16,25 +20,34 @@ export default function About() {
         }}
       >
         <p>
-          I&apos;ve spent 20+ years at the intersection of engineering and delivery —
-          leading programs and teams at Kyndryl, Flexe, Comcast, and Radial where
-          the work was genuinely complex: AWS cloud migrations, platform rewrites
-          under pressure, and distributed teams across time zones.
+          I&apos;m a software engineering and delivery leader with 20+ years of
+          experience building high-performing teams, driving Agile transformation,
+          and delivering complex technical programs at scale. I work at the
+          intersection of engineering execution and business outcomes, whether the
+          priority is stabilizing a struggling team, standing up a planning
+          framework across a large organization, or leading a cloud migration
+          without slowing critical delivery.
         </p>
         <p>
-          My edge is building the systems around the work — PI planning frameworks,
-          team structures, escalation protocols, delivery cadence — that give
-          engineers clarity and give executives visibility without creating overhead.
-          Whether the title is EM or TPM, I care most about the outcome: software
-          that ships predictably and teams that don&apos;t burn out getting there.
+          My background spans both Engineering Manager and Technical Program
+          Manager roles, so I bring technical credibility, delivery discipline,
+          and the ability to align engineering, product, and leadership around
+          clear priorities. I specialize in translating business goals into
+          executable roadmaps, managing multi-team programs in remote and
+          distributed environments, and creating the operating rhythms that keep
+          teams moving with focus and accountability.
         </p>
         <p>
-          Lehigh University, B.A. Science, Technology &amp; Society with a minor in
-          Computer Science. Since 2023 I&apos;ve pursued hands-on cloud and AI work
-          through AWS tutorials, freeCodeCamp certifications, and building projects
-          with modern LLM APIs.
+          I lead through clarity, not authority, and do my best work in
+          high-expectation environments where the problems are hard and the stakes
+          are real. My focus is consistent across roles: reduce technical debt,
+          break down silos, strengthen collaboration, and create the conditions for
+          engineers to do their best work while delivering outcomes the business
+          can trust. I also use modern AI capabilities, including ChatGPT and
+          Claude with API integrations, as practical tools to accelerate analysis,
+          improve communication, and support better execution.
         </p>
-      </div>
+      </Reveal>
     </section>
   );
 }

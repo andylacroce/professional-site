@@ -1,4 +1,5 @@
 import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
 
 const groups = [
   {
@@ -41,22 +42,34 @@ const groups = [
       "Technical debt reduction",
     ],
   },
+  {
+    label: "Applied AI",
+    items: [
+      "ChatGPT and Claude",
+      "LLM API integration",
+      "AI-assisted delivery workflows",
+      "Prompt and output quality management",
+      "Outcome-focused AI adoption",
+    ],
+  },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16 border-t section-divider">
-      <SectionHeader>Skills</SectionHeader>
+    <section id="skills" className="py-12 sm:py-16 border-t section-divider">
+      <Reveal>
+        <SectionHeader>Skills</SectionHeader>
+      </Reveal>
       <div
         style={{
           marginTop: "1.5rem",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-          gap: "1.5rem",
+          gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+          gap: "1.25rem",
         }}
       >
-        {groups.map((g) => (
-          <div key={g.label}>
+        {groups.map((g, index) => (
+          <Reveal key={g.label} delay={index * 45} className="skill-group">
             <p style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "0.6rem", letterSpacing: "0.02em" }}>
               {g.label}
             </p>
@@ -67,7 +80,7 @@ export default function Skills() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>

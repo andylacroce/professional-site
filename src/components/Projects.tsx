@@ -1,4 +1,5 @@
 import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
 
 const projects = [
   {
@@ -19,53 +20,55 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-16 border-t section-divider">
-      <SectionHeader>Projects</SectionHeader>
+    <section id="projects" className="py-12 sm:py-16 border-t section-divider">
+      <Reveal>
+        <SectionHeader>Projects</SectionHeader>
+      </Reveal>
       <div style={{ marginTop: "1.5rem", display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-        {projects.map((p) => (
-          <a
-            key={p.name}
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              padding: "1.25rem",
-              borderRadius: "0.5rem",
-              border: "1px solid var(--border)",
-              background: "var(--surface)",
-              textDecoration: "none",
-              transition: "border-color 0.2s",
-            }}
-            className="hover:border-indigo-500/50"
-          >
-            <div className="flex items-center justify-between gap-2">
-              <span style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "0.95rem" }}>
-                {p.name}
-              </span>
-              <ExternalLinkIcon />
-            </div>
-            <p style={{ marginTop: "0.5rem", fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-              {p.description}
-            </p>
-            <div style={{ marginTop: "0.75rem", display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-              {p.tags.map((tag) => (
-                <span
-                  key={tag}
-                  style={{
-                    fontSize: "0.7rem",
-                    fontWeight: 500,
-                    padding: "0.2rem 0.55rem",
-                    borderRadius: "9999px",
-                    border: "1px solid var(--border)",
-                    color: "var(--text-secondary)",
-                  }}
-                >
-                  {tag}
+        {projects.map((p, index) => (
+          <Reveal key={p.name} delay={index * 65}>
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "block",
+                padding: "1rem",
+                borderRadius: "0.5rem",
+                border: "1px solid var(--border)",
+                background: "var(--surface-elevated)",
+                textDecoration: "none",
+              }}
+              className="project-card"
+            >
+              <div className="flex items-start justify-between gap-2">
+                <span className="font-display" style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "1rem", lineHeight: 1.3 }}>
+                  {p.name}
                 </span>
-              ))}
-            </div>
-          </a>
+                <ExternalLinkIcon />
+              </div>
+              <p style={{ marginTop: "0.5rem", fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+                {p.description}
+              </p>
+              <div style={{ marginTop: "0.75rem", display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+                {p.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    style={{
+                      fontSize: "0.7rem",
+                      fontWeight: 500,
+                      padding: "0.2rem 0.55rem",
+                      borderRadius: "9999px",
+                      border: "1px solid var(--border)",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </a>
+          </Reveal>
         ))}
       </div>
     </section>
@@ -75,6 +78,7 @@ export default function Projects() {
 function ExternalLinkIcon() {
   return (
     <svg
+      className="project-card-icon"
       width="13"
       height="13"
       viewBox="0 0 24 24"

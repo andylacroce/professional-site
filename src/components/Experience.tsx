@@ -1,8 +1,10 @@
+import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 
 const roles = [
   {
     company: "Kyndryl (formerly Skytap)",
+    logo: "/logos/kyndryl.svg",
     title: "Sr. Lead, Program Management",
     dates: "Apr 2024 – Jun 2025",
     bullets: [
@@ -13,6 +15,7 @@ const roles = [
   },
   {
     company: "Flexe",
+    logo: "/logos/flexe.png",
     title: "Software Development Manager",
     dates: "Jan 2022 – Aug 2023",
     bullets: [
@@ -23,6 +26,7 @@ const roles = [
   },
   {
     company: "Comcast",
+    logo: "/logos/comcast.svg",
     title: "Software Development Manager",
     dates: "Dec 2019 – Nov 2021",
     bullets: [
@@ -33,6 +37,7 @@ const roles = [
   },
   {
     company: "Comcast",
+    logo: "/logos/comcast.svg",
     title: "Sr. Technical Program Manager",
     dates: "Jul 2016 – Nov 2019",
     bullets: [
@@ -43,6 +48,8 @@ const roles = [
   },
   {
     company: "Radial (formerly GSI Commerce)",
+    logo: "/logos/radial.png",
+    logoFit: "cover" as const,
     title: "Lead Technical Project Manager",
     dates: "Jan 2011 – Jun 2016",
     bullets: [
@@ -52,12 +59,14 @@ const roles = [
   },
   {
     company: "LRN",
+    logo: "/logos/lrn.svg",
     title: "Technical Project Manager",
     dates: "Jan 2006 – Jan 2011",
     bullets: [],
   },
   {
     company: "Aon",
+    logo: "/logos/aon.svg",
     title: "Business Systems Engineer",
     dates: "Sep 2004 – Sep 2005",
     bullets: [],
@@ -71,17 +80,30 @@ export default function Experience() {
       <div style={{ marginTop: "1.5rem", display: "flex", flexDirection: "column", gap: "2.5rem" }}>
         {roles.map((role) => (
           <div key={`${role.company}-${role.title}`} className="flex gap-6">
-            {/* Timeline dot */}
-            <div style={{ flexShrink: 0, paddingTop: "0.35rem" }}>
+            {/* Logo / dot */}
+            <div style={{ flexShrink: 0, width: "96px", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "0.15rem" }}>
               <div
                 style={{
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  background: "var(--accent)",
-                  marginTop: "0.1rem",
+                  width: "96px",
+                  height: "44px",
+                  borderRadius: "6px",
+                  border: "1px solid var(--border)",
+                  background: "#ffffff",
+                  overflow: "hidden",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "6px 8px",
                 }}
-              />
+              >
+                <Image
+                  src={role.logo}
+                  alt={role.company}
+                  width={80}
+                  height={32}
+                  style={{ objectFit: role.logoFit ?? "contain", width: "100%", height: "100%" }}
+                />
+              </div>
             </div>
 
             <div style={{ flex: 1 }}>

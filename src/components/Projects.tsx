@@ -10,7 +10,7 @@ const projects = [
   },
   {
     name: "andrewlacroce.com",
-    url: "https://github.com/andylacroce",
+    url: "https://github.com/andylacroce/professional-site",
     description:
       "This site. Built from scratch with Next.js 15, Tailwind CSS v4, and static export — no template, no CMS. Deployed to Vercel with a custom domain via Cloudflare.",
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vercel"],

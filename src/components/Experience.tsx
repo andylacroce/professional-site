@@ -120,7 +120,7 @@ export default function Experience() {
                     @ {role.company}
                   </span>
                 </div>
-                <span style={{ fontSize: "0.75rem", color: "var(--accent-light)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                <span className="sm:whitespace-nowrap" style={{ fontSize: "0.75rem", color: "var(--accent-light)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   {role.dates}
                 </span>
               </div>

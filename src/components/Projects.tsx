@@ -13,7 +13,7 @@ const projects = [
   },
   {
     name: "andrewlacroce.com",
-    siteUrl: "https://andrewlacroce.com/",
+    siteUrl: null,
     githubUrl: "https://github.com/andylacroce/professional-site",
     githubSlug: "professional-site",
     description:
@@ -40,9 +40,24 @@ export default function Projects() {
               }}
               className="project-card"
             >
-              <span className="font-display" style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "1.0625rem", lineHeight: 1.3 }}>
-                {p.name}
-              </span>
+              {p.siteUrl ? (
+                <a
+                  href={p.siteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-display accent-link inline-flex items-center gap-1.5 w-fit"
+                  style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "1.0625rem", lineHeight: 1.3, textDecoration: "none" }}
+                >
+                  {p.name}
+                  <ExternalLinkIcon />
+                </a>
+              ) : (
+                <span className="font-display inline-flex items-center gap-1.5" style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "1.0625rem", lineHeight: 1.3 }}>
+                  {p.name}
+                  <YouAreHereIcon />
+                  <span style={{ fontSize: "0.8rem", fontWeight: 400, color: "var(--text-secondary)", opacity: 0.7 }}>(You are here)</span>
+                </span>
+              )}
               <p style={{ marginTop: "0.5rem", fontSize: "0.95rem", color: "var(--text-secondary)", lineHeight: 1.72 }}>
                 {p.description}
               </p>
@@ -63,17 +78,7 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-              <div style={{ marginTop: "0.85rem", display: "flex", alignItems: "center", gap: "1.25rem", flexWrap: "wrap" }}>
-                <a
-                  href={p.siteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}
-                  className="accent-link flex items-center gap-1.5"
-                >
-                  <ExternalLinkIcon />
-                  Visit site
-                </a>
+              <div style={{ marginTop: "0.85rem" }}>
                 <a
                   href={p.githubUrl}
                   target="_blank"
@@ -90,6 +95,15 @@ export default function Projects() {
         ))}
       </div>
     </section>
+  );
+}
+
+function YouAreHereIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ flexShrink: 0 }}>
+      <circle cx="12" cy="12" r="3" />
+      <circle cx="12" cy="12" r="9" strokeOpacity="0.4" />
+    </svg>
   );
 }
 

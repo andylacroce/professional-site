@@ -145,6 +145,34 @@ section[id] {
   transform: translateY(-1px);
 }
 
+.contact-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  margin: 0 -0.5rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.contact-row:hover {
+  background: rgba(185, 137, 82, 0.06);
+}
+
+.contact-row:hover .contact-row-label {
+  color: var(--accent-light);
+}
+
+.contact-row-chevron {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.contact-row:hover .contact-row-chevron {
+  transform: translateX(3px);
+  color: var(--accent-light);
+}
+
 .skill-row {
   border-radius: 0.5rem;
   transition: background-color 0.2s ease;
@@ -162,6 +190,8 @@ section[id] {
   .reveal,
   .project-card,
   .experience-item,
+  .contact-row,
+  .contact-row-chevron,
   .skill-row,
   .accent-link,
   .project-card-icon,

@@ -6,6 +6,7 @@ const experienceGroups = [
   {
     company: "Kyndryl (formerly Skytap)",
     logo: "/logos/kyndryl.svg",
+    homepage: "https://www.kyndryl.com/",
     positions: [
       {
         title: "Sr. Lead, Program Management",
@@ -21,6 +22,7 @@ const experienceGroups = [
   {
     company: "Flexe",
     logo: "/logos/flexe.png",
+    homepage: "https://www.flexe.com/",
     positions: [
       {
         title: "Software Development Manager",
@@ -36,6 +38,7 @@ const experienceGroups = [
   {
     company: "Comcast",
     logo: "/logos/comcast.svg",
+    homepage: "https://corporate.comcast.com/",
     positions: [
       {
         title: "Software Development Manager",
@@ -59,6 +62,7 @@ const experienceGroups = [
   {
     company: "Radial (formerly GSI Commerce)",
     logo: "/logos/radial.png",
+    homepage: "https://www.radial.com/",
     logoFit: "cover" as const,
     positions: [
       {
@@ -74,6 +78,7 @@ const experienceGroups = [
   {
     company: "LRN",
     logo: "/logos/lrn.svg",
+    homepage: "https://www.lrn.com/",
     positions: [
       {
         title: "Technical Project Manager",
@@ -85,6 +90,7 @@ const experienceGroups = [
   {
     company: "Aon",
     logo: "/logos/aon.svg",
+    homepage: "https://www.aon.com/",
     positions: [
       {
         title: "Business Systems Engineer",
@@ -106,7 +112,11 @@ export default function Experience() {
           <Reveal key={group.company} delay={index * 55}>
             <div className="experience-item flex flex-col sm:flex-row gap-4 sm:gap-6">
               <div className="w-[88px] sm:w-[96px]" style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "0.15rem" }}>
-                <div
+                <a
+                  href={group.homepage}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${group.company} homepage`}
                   style={{
                     width: "100%",
                     height: "44px",
@@ -127,7 +137,7 @@ export default function Experience() {
                     height={32}
                     style={{ objectFit: group.logoFit ?? "contain", width: "100%", height: "100%" }}
                   />
-                </div>
+                </a>
               </div>
 
               <div style={{ flex: 1 }}>

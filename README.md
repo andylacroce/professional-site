@@ -2,7 +2,7 @@
 
 Personal portfolio and resume site for Andrew Lacroce.
 
-Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template, no CMS. The site uses a custom dark theme, editorial typography, lightweight scroll-reveal motion, and static export for deployment on Vercel with a custom domain via Cloudflare.
+Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template, no CMS. The site uses a custom dark theme, editorial typography, lightweight scroll-reveal motion, and is deployed on Vercel with a custom domain via Cloudflare.
 
 ## Current State
 
@@ -13,11 +13,10 @@ Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template
 - Sticky in-page navigation with active section highlighting and a Home anchor
 - Lightweight reveal animations with `prefers-reduced-motion` support
 - Profile image used for both the hero and favicon
-- Static export compatible with Vercel hosting
 
 ## Stack
 
-- **Framework**: Next.js 15 (App Router, static export)
+- **Framework**: Next.js 15 (App Router)
 - **Styling**: Tailwind CSS v4
 - **Language**: TypeScript
 - **UI Motion**: Custom CSS + Intersection Observer reveal wrapper
@@ -63,7 +62,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
 npm run dev    # Start local development server
-npm run build  # Create static production build
+npm run build  # Create production build
 npm run start  # Start Next.js production server
 npm run lint   # Run linting
 ```
@@ -74,9 +73,7 @@ npm run lint   # Run linting
 npm run build
 ```
 
-Outputs a static site to `out/`. Vercel handles this automatically on push.
-
-Because the app uses `output: "export"` and `images.unoptimized`, it is designed to work cleanly as a statically exported site.
+Vercel handles this automatically on push.
 
 ## Deployment
 

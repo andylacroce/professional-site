@@ -60,22 +60,15 @@ export default function Skills() {
       <Reveal>
         <SectionHeader>Skills</SectionHeader>
       </Reveal>
-      <div
-        style={{
-          marginTop: "1.5rem",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
-          gap: "1.25rem",
-        }}
-      >
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {groups.map((g, index) => (
           <Reveal key={g.label} delay={index * 45} className="skill-group">
-            <p style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "0.6rem", letterSpacing: "0.02em" }}>
+            <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "0.7rem", letterSpacing: "0.02em" }}>
               {g.label}
             </p>
             <ul style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
               {g.items.map((item) => (
-                <li key={item} style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>
+                <li key={item} style={{ fontSize: "0.9rem", color: "var(--text-secondary)", lineHeight: 1.55 }}>
                   {item}
                 </li>
               ))}

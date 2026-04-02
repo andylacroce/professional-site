@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 
 const links = [
-  { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Skills" },
@@ -13,7 +12,7 @@ const links = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeHref, setActiveHref] = useState(links[0].href);
+  const [activeHref, setActiveHref] = useState("");
 
   useEffect(() => {
     const sections = links
@@ -27,7 +26,7 @@ export default function Nav() {
         return;
       }
       const viewportAnchor = window.innerHeight * 0.32;
-      let currentHref = `#${sections[0].id}`;
+      let currentHref = "";
 
       for (let index = 0; index < sections.length; index += 1) {
         const section = sections[index];
@@ -69,14 +68,16 @@ export default function Nav() {
       }}
       className="sticky top-0 z-50 transition-all duration-300"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-2 sm:py-0 sm:h-14 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
-        <span
-          className="font-display text-base sm:text-base md:text-lg leading-none"
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-2 sm:py-0 sm:h-14 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-2">
+        <a
+          href="#home"
+          onClick={() => setActiveHref("")}
+          className="font-display text-xl sm:text-xl md:text-2xl leading-none"
           style={{ color: "var(--accent)", letterSpacing: "0.01em" }}
         >
           Andrew Lacroce
-        </span>
-        <ul className="w-full sm:w-auto flex flex-wrap sm:flex-nowrap gap-x-3 gap-y-1 sm:gap-3 md:gap-4">
+        </a>
+        <ul className="w-full sm:w-auto flex flex-wrap sm:flex-nowrap gap-x-3 gap-y-1 sm:gap-2 md:gap-3">
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -85,11 +86,11 @@ export default function Nav() {
                 aria-current={activeHref === l.href ? "page" : undefined}
                 style={{
                   color: activeHref === l.href ? "var(--text-primary)" : "var(--text-secondary)",
-                  fontSize: "0.9375rem",
+                  fontSize: "1rem",
                   background: activeHref === l.href ? "var(--accent-soft)" : "transparent",
                   borderColor: activeHref === l.href ? "color-mix(in srgb, var(--accent) 30%, transparent)" : "transparent",
                 }}
-                className="accent-link inline-flex min-h-8 items-center whitespace-nowrap rounded-full border px-2.5 sm:min-h-0 sm:px-3 sm:py-1 sm:text-sm"
+                className="accent-link inline-flex min-h-8 items-center whitespace-nowrap rounded-full border px-2.5 sm:min-h-0 sm:px-2.5 sm:py-0.5 sm:text-base"
               >
                 {l.label}
               </a>

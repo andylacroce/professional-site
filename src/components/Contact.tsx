@@ -8,8 +8,8 @@ export default function Contact() {
         <SectionHeader>Contact</SectionHeader>
       </Reveal>
       <Reveal delay={70}>
-        <p style={{ marginTop: "1rem", color: "var(--text-secondary)", fontSize: "0.9rem", lineHeight: 1.6, maxWidth: "42ch" }}>
-          Open to TPM and EM roles. Best ways to reach me:
+        <p style={{ marginTop: "1rem", color: "var(--text-secondary)", fontSize: "0.98rem", lineHeight: 1.7, maxWidth: "42ch" }}>
+          Open to Technical Program Manager and Engineering Manager roles. Best ways to reach me:
         </p>
       </Reveal>
       <Reveal delay={120} style={{ marginTop: "1.25rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -20,7 +20,7 @@ export default function Contact() {
             alignItems: "center",
             gap: "0.6rem",
             color: "var(--text-primary)",
-            fontSize: "0.9rem",
+            fontSize: "0.98rem",
             fontWeight: 500,
             textDecoration: "none",
           }}
@@ -41,7 +41,7 @@ export default function Contact() {
             alignItems: "center",
             gap: "0.6rem",
             color: "var(--text-primary)",
-            fontSize: "0.9rem",
+            fontSize: "0.98rem",
             fontWeight: 500,
             textDecoration: "none",
           }}

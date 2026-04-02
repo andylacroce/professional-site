@@ -11,8 +11,8 @@ export default function About() {
         delay={70}
         style={{
           color: "var(--text-secondary)",
-          lineHeight: 1.75,
-          fontSize: "1rem",
+          lineHeight: 1.82,
+          fontSize: "1.0625rem",
           display: "flex",
           flexDirection: "column",
           gap: "1rem",

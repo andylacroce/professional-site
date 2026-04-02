@@ -12,7 +12,7 @@ export default function Hero() {
               alt="Andrew Lacroce"
               width={220}
               height={220}
-              className="rounded-full w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 transition-opacity hover:opacity-90"
+              className="rounded-full w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52"
               style={{ border: "2px solid var(--border)" }}
               priority
             />
@@ -25,8 +25,8 @@ export default function Hero() {
               className="font-display"
               style={{
                 fontSize: "clamp(2rem, 5vw, 2.75rem)",
-                fontWeight: 700,
-                letterSpacing: "-0.04em",
+                fontWeight: 600,
+                letterSpacing: "-0.03em",
                 lineHeight: 1.1,
                 color: "var(--text-primary)",
               }}
@@ -35,22 +35,22 @@ export default function Hero() {
             </h1>
             <p
               style={{
-                fontSize: "1.125rem",
+                fontSize: "1.1875rem",
                 color: "var(--accent-light)",
                 marginTop: "0.375rem",
                 fontWeight: 500,
               }}
             >
-              Engineering Leader · TPM / EM
+              Technical Program Manager / Engineering Manager
             </p>
           </div>
 
           <p
             style={{
-              fontSize: "1rem",
+              fontSize: "1.0625rem",
               color: "var(--text-secondary)",
               maxWidth: "62ch",
-              lineHeight: 1.6,
+              lineHeight: 1.72,
             }}
           >
             20+ years driving delivery across engineering, product, and business
@@ -64,7 +64,7 @@ export default function Hero() {
               href="https://www.linkedin.com/in/andrew-lacroce/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}
+              style={{ color: "var(--text-secondary)", fontSize: "0.95rem" }}
               className="accent-link flex items-center gap-1.5"
             >
               <LinkedInIcon />
@@ -74,7 +74,7 @@ export default function Hero() {
               href="https://github.com/andylacroce"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}
+              style={{ color: "var(--text-secondary)", fontSize: "0.95rem" }}
               className="accent-link flex items-center gap-1.5"
             >
               <GitHubIcon />
@@ -82,7 +82,7 @@ export default function Hero() {
             </a>
             <a
               href="mailto:andrew+work@andrewlacroce.com"
-              style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}
+              style={{ color: "var(--text-secondary)", fontSize: "0.95rem" }}
               className="accent-link flex items-center gap-1.5 break-all"
             >
               <EmailIcon />

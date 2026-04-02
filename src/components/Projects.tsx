@@ -42,12 +42,12 @@ export default function Projects() {
               className="project-card"
             >
               <div className="flex items-start justify-between gap-2">
-                <span className="font-display" style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "1rem", lineHeight: 1.3 }}>
+                <span className="font-display" style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "1.0625rem", lineHeight: 1.3 }}>
                   {p.name}
                 </span>
                 <ExternalLinkIcon />
               </div>
-              <p style={{ marginTop: "0.5rem", fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+              <p style={{ marginTop: "0.5rem", fontSize: "0.95rem", color: "var(--text-secondary)", lineHeight: 1.72 }}>
                 {p.description}
               </p>
               <div style={{ marginTop: "0.75rem", display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
@@ -55,7 +55,7 @@ export default function Projects() {
                   <span
                     key={tag}
                     style={{
-                      fontSize: "0.7rem",
+                      fontSize: "0.8rem",
                       fontWeight: 500,
                       padding: "0.2rem 0.55rem",
                       borderRadius: "9999px",

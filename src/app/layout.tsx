@@ -15,18 +15,18 @@ const displayFont = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Andrew Lacroce — Engineering Leader",
+  title: "Andrew Lacroce — Technical Program Manager / Engineering Manager",
   description:
-    "Engineering leader with 20+ years delivering complex software programs. Targeting TPM and EM roles.",
+    "Technical Program Manager and Engineering Manager with 20+ years delivering complex software programs.",
   icons: {
     icon: "/profile-pic.jpg",
     apple: "/profile-pic.jpg",
     shortcut: "/profile-pic.jpg",
   },
   openGraph: {
-    title: "Andrew Lacroce — Engineering Leader",
+    title: "Andrew Lacroce — Technical Program Manager / Engineering Manager",
     description:
-      "Engineering leader with 20+ years delivering complex software programs.",
+      "Technical Program Manager and Engineering Manager with 20+ years delivering complex software programs.",
     url: "https://andrewlacroce.com",
     siteName: "Andrew Lacroce",
     type: "website",

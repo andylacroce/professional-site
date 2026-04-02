@@ -6,7 +6,7 @@
   --surface-elevated: #152022;
   --border: #263436;
   --text-primary: #edf0ea;
-  --text-secondary: #93a19b;
+  --text-secondary: #b0bbb6;
   --accent: #b98952;
   --accent-light: #d9b48a;
   --accent-soft: rgba(185, 137, 82, 0.16);
@@ -23,6 +23,9 @@ body {
     linear-gradient(180deg, #091113 0%, #0b1415 42%, #0c1111 100%);
   color: var(--text-primary);
   font-family: var(--font-body), sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   position: relative;

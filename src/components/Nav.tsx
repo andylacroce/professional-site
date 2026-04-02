@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const links = [
   { href: "#about", label: "About" },
@@ -13,6 +13,8 @@ const links = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [activeHref, setActiveHref] = useState("");
+  const lastHref = links[links.length - 1]?.href ?? "";
+  const manualSelectionUntilRef = useRef(0);
 
   useEffect(() => {
     const sections = links
@@ -25,6 +27,22 @@ export default function Nav() {
       if (sections.length === 0) {
         return;
       }
+
+      if (Date.now() < manualSelectionUntilRef.current) {
+        return;
+      }
+
+      const pageBottom = window.scrollY + window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      const isAtBottom = pageBottom >= docHeight - 2;
+
+      if (isAtBottom && lastHref) {
+        setActiveHref((previousHref) =>
+          previousHref === lastHref ? previousHref : lastHref,
+        );
+        return;
+      }
+
       const viewportAnchor = window.innerHeight * 0.32;
       let currentHref = "";
 
@@ -82,15 +100,18 @@ export default function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                onClick={() => setActiveHref(l.href)}
+                onClick={() => {
+                  setActiveHref(l.href);
+                  manualSelectionUntilRef.current = Date.now() + 1200;
+                }}
                 aria-current={activeHref === l.href ? "page" : undefined}
                 style={{
-                  color: activeHref === l.href ? "var(--text-primary)" : "var(--text-secondary)",
+                  color: "var(--text-primary)",
                   fontSize: "1rem",
                   background: activeHref === l.href ? "var(--accent-soft)" : "transparent",
                   borderColor: activeHref === l.href ? "color-mix(in srgb, var(--accent) 30%, transparent)" : "transparent",
                 }}
-                className="accent-link inline-flex min-h-8 items-center whitespace-nowrap rounded-full border px-2.5 sm:min-h-0 sm:px-2.5 sm:py-0.5 sm:text-base"
+                className="accent-link nav-pill-link inline-flex min-h-8 items-center whitespace-nowrap rounded-full border px-2.5 sm:min-h-0 sm:px-2.5 sm:py-0.5 sm:text-base"
               >
                 {l.label}
               </a>

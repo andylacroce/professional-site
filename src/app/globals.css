@@ -73,6 +73,10 @@ section[id] {
   color: var(--accent-light) !important;
 }
 
+.nav-pill-link:hover {
+  color: var(--text-primary) !important;
+}
+
 .accent-link svg {
   transition: transform 0.2s ease, color 0.2s ease;
 }

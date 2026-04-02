@@ -111,13 +111,13 @@ export default function Experience() {
             </div>
 
             <div style={{ flex: 1 }}>
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1.5">
-                <div>
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5">
+                <div className="flex flex-col gap-1">
                   <span className="font-display" style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "1rem", lineHeight: 1.2 }}>
                     {role.title}
                   </span>
-                  <span className="block sm:inline sm:ml-2" style={{ color: "var(--text-secondary)", fontSize: "0.875rem", letterSpacing: "0.01em" }}>
-                    @ {role.company}
+                  <span style={{ color: "var(--text-secondary)", fontSize: "0.875rem", letterSpacing: "0.01em" }}>
+                    {role.company}
                   </span>
                 </div>
                 <span className="sm:whitespace-nowrap" style={{ fontSize: "0.75rem", color: "var(--accent-light)", textTransform: "uppercase", letterSpacing: "0.08em" }}>

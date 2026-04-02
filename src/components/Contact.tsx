@@ -53,11 +53,6 @@ export default function Contact() {
           LinkedIn
         </a>
       </Reveal>
-      <Reveal delay={170}>
-        <p style={{ marginTop: "3rem", fontSize: "0.75rem", color: "var(--text-secondary)", opacity: 0.5 }}>
-          Built with Next.js · Deployed on Vercel
-        </p>
-      </Reveal>
     </section>
   );
 }

@@ -22,6 +22,8 @@ const experienceGroups = [
     company: "Flexe",
     logo: "logos/flexe.png",
     homepage: "https://www.flexe.com/",
+    logoFit: "cover" as const,
+    logoPosition: "center 58%",
     positions: [
       {
         title: "Software Development Manager",
@@ -136,7 +138,12 @@ export default function Experience() {
                     width={80}
                     height={32}
                     loading="lazy"
-                    style={{ objectFit: group.logoFit ?? "contain", width: "100%", height: "100%" }}
+                    style={{
+                      objectFit: group.logoFit ?? "contain",
+                      objectPosition: group.logoPosition ?? "center",
+                      width: "100%",
+                      height: "100%",
+                    }}
                   />
                 </a>
               </div>

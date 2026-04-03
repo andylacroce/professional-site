@@ -16,7 +16,7 @@ const displayFont = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Andrew Lacroce — Technical Program Manager / Engineering Manager",
+  title: "Andrew Lacroce — Technical Program Manager * Engineering Manager",
   description:
     "Technical Program Manager and Engineering Manager with 20+ years delivering complex software programs.",
   icons: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     shortcut: "profile-pic.jpg",
   },
   openGraph: {
-    title: "Andrew Lacroce — Technical Program Manager / Engineering Manager",
+    title: "Andrew Lacroce — Technical Program Manager * Engineering Manager",
     description:
       "Technical Program Manager and Engineering Manager with 20+ years delivering complex software programs.",
     url: "https://andrewlacroce.com",

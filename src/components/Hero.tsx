@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Reveal from "./Reveal";
 
 export default function Hero() {
@@ -6,15 +5,16 @@ export default function Hero() {
     <section id="home" className="pt-14 sm:pt-20 pb-12 sm:pb-16">
       <div className="flex flex-col lg:flex-row lg:items-center gap-6 sm:gap-7 lg:gap-10">
         <Reveal delay={40} className="w-fit shrink-0">
-          <a href="/profile-pic.jpg" target="_blank" rel="noopener noreferrer" className="w-fit shrink-0">
-            <Image
-              src="/profile-pic.jpg"
+          <a href="profile-pic.jpg" target="_blank" rel="noopener noreferrer" className="w-fit shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="profile-pic.jpg"
               alt="Andrew Lacroce"
               width={220}
               height={220}
               className="rounded-full w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52"
               style={{ border: "2px solid var(--border)" }}
-              priority
+              loading="eager"
             />
           </a>
         </Reveal>

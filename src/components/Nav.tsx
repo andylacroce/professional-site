@@ -75,7 +75,7 @@ export default function Nav() {
       window.removeEventListener("scroll", handler);
       window.removeEventListener("resize", handler);
     };
-  }, []);
+  }, [lastHref]);
 
   return (
     <nav

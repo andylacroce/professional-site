@@ -2,7 +2,7 @@
 
 Personal portfolio and resume site for Andrew Lacroce.
 
-Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template, no CMS. The site uses a custom dark theme, editorial typography, lightweight scroll-reveal motion, and is deployed on Vercel with a custom domain via Cloudflare.
+Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template, no CMS. The site uses a custom dark theme, editorial typography, lightweight scroll-reveal motion, and is deployed on Vercel with a custom domain via Cloudflare. It also supports static export for a loadable `out/` build.
 
 ## Current State
 
@@ -13,6 +13,7 @@ Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template
 - Sticky in-page navigation with active section highlighting and a Home anchor
 - Lightweight reveal animations with `prefers-reduced-motion` support
 - Profile image used for both the hero and favicon
+- Static export support with post-build path normalization for `file://` compatibility
 
 ## Stack
 
@@ -62,7 +63,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
 npm run dev    # Start local development server
-npm run build  # Create production build
+npm run build  # Create production build and export a file-loadable out/ folder
 npm run start  # Start Next.js production server
 npm run lint   # Run linting
 ```
@@ -73,7 +74,27 @@ npm run lint   # Run linting
 npm run build
 ```
 
+This command:
+- Runs `next build` with `output: "export"`
+- Generates static files in `out/`
+- Runs `scripts/fix-static-export-paths.mjs` to rewrite root-relative asset paths for clean local file loading
+
 Vercel handles this automatically on push.
+
+## Static Export
+
+The exported site is generated in `out/` and is intended to be directly loadable as static files.
+
+- Entry file: `out/index.html`
+- Static assets: `out/_next/`, `out/logos/`, `out/profile-pic.jpg`
+
+To preview locally with a static server:
+
+```bash
+npx serve out
+```
+
+You can also open `out/index.html` directly from disk.
 
 ## Deployment
 

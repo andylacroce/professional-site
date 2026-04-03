@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const bodyFont = Manrope({
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   description:
     "Technical Program Manager and Engineering Manager with 20+ years delivering complex software programs.",
   icons: {
-    icon: "/profile-pic.jpg",
-    apple: "/profile-pic.jpg",
-    shortcut: "/profile-pic.jpg",
+    icon: "profile-pic.jpg",
+    apple: "profile-pic.jpg",
+    shortcut: "profile-pic.jpg",
   },
   openGraph: {
     title: "Andrew Lacroce — Technical Program Manager / Engineering Manager",

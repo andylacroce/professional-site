@@ -1,11 +1,10 @@
-import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 
 const experienceGroups = [
   {
     company: "Kyndryl (formerly Skytap)",
-    logo: "/logos/kyndryl.svg",
+    logo: "logos/kyndryl.svg",
     homepage: "https://www.kyndryl.com/",
     positions: [
       {
@@ -21,7 +20,7 @@ const experienceGroups = [
   },
   {
     company: "Flexe",
-    logo: "/logos/flexe.png",
+    logo: "logos/flexe.png",
     homepage: "https://www.flexe.com/",
     positions: [
       {
@@ -37,7 +36,7 @@ const experienceGroups = [
   },
   {
     company: "Comcast",
-    logo: "/logos/comcast.svg",
+    logo: "logos/comcast.svg",
     homepage: "https://corporate.comcast.com/",
     positions: [
       {
@@ -61,7 +60,7 @@ const experienceGroups = [
   },
   {
     company: "Radial (formerly GSI Commerce)",
-    logo: "/logos/radial.png",
+    logo: "logos/radial.png",
     homepage: "https://www.radial.com/",
     logoFit: "cover" as const,
     positions: [
@@ -77,7 +76,7 @@ const experienceGroups = [
   },
   {
     company: "LRN",
-    logo: "/logos/lrn.svg",
+    logo: "logos/lrn.svg",
     homepage: "https://www.lrn.com/",
     positions: [
       {
@@ -89,7 +88,7 @@ const experienceGroups = [
   },
   {
     company: "Aon",
-    logo: "/logos/aon.svg",
+    logo: "logos/aon.svg",
     homepage: "https://www.aon.com/",
     positions: [
       {
@@ -130,11 +129,13 @@ export default function Experience() {
                     padding: "6px 8px",
                   }}
                 >
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={group.logo}
                     alt={group.company}
                     width={80}
                     height={32}
+                    loading="lazy"
                     style={{ objectFit: group.logoFit ?? "contain", width: "100%", height: "100%" }}
                   />
                 </a>

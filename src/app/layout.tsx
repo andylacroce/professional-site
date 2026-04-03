@@ -7,6 +7,7 @@ const siteUrl = "https://andrewlacroce.com";
 const siteTitle = "Andrew Lacroce — Technical Program Manager * Engineering Manager";
 const siteDescription =
   "Technical Program Manager and Engineering Manager with 20+ years delivering complex software programs.";
+const socialImagePath = "/og-image.png";
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
 const bodyFont = Manrope({
@@ -73,10 +74,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/profile-pic.jpg",
+        url: socialImagePath,
         width: 1200,
-        height: 1200,
-        alt: "Andrew Lacroce",
+        height: 630,
+        alt: "Andrew Lacroce - Technical Program Manager and Engineering Manager",
       },
     ],
   },
@@ -84,7 +85,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/profile-pic.jpg"],
+    images: [socialImagePath],
   },
 };
 

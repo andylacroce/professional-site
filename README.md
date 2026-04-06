@@ -23,6 +23,7 @@ Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template
 - **UI Motion**: Custom CSS + Intersection Observer reveal wrapper
 - **Typography**: Google Fonts via `next/font`
 - **Analytics**: Vercel Analytics
+- **Contact Form**: Formspree (API endpoint) + Cloudflare Turnstile (spam protection)
 - **Deployment**: Vercel
 - **DNS**: Cloudflare → `andrewlacroce.com`
 
@@ -75,6 +76,7 @@ npm run build
 ```
 
 This command:
+
 - Runs `next build` with `output: "export"`
 - Generates static files in `out/`
 - Runs `scripts/fix-static-export-paths.mjs` to rewrite root-relative asset paths for clean local file loading

@@ -278,6 +278,28 @@ section[id] {
   margin-bottom: 0.25rem;
 }
 
+/* Cloudflare Turnstile widget — prevent overflow on small screens */
+.contact-turnstile-wrapper {
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .contact-form-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact-turnstile-wrapper {
+    height: 59px; /* visual height after scale(0.9): 65px × 0.9 ≈ 59px */
+  }
+
+  .contact-turnstile-wrapper > div {
+    transform: scale(0.9);
+    transform-origin: left top;
+  }
+}
+
 .skill-row {
   border-radius: 0.5rem;
   transition: background-color 0.2s ease;

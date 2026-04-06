@@ -141,7 +141,9 @@ export default function Contact() {
                 className="contact-form-input contact-form-textarea"
               />
             </div>
-            <div ref={widgetRef} />
+            <div className="contact-turnstile-wrapper">
+              <div ref={widgetRef} />
+            </div>
             {captchaError && (
               <p className="contact-form-error">Please complete the captcha before sending.</p>
             )}

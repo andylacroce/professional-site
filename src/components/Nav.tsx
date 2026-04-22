@@ -90,7 +90,11 @@ export default function Nav() {
         <div className="flex items-center gap-2.5 sm:gap-3">
           <a
             href="#home"
-            onClick={() => setActiveHref("")}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveHref("");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className="font-display text-xl sm:text-xl md:text-2xl leading-none"
             style={{ color: "var(--accent)", letterSpacing: "0.01em" }}
           >

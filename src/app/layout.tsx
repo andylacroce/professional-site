@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const siteUrl = "https://andrewlacroce.com";
-const siteTitle = "Andrew Lacroce — Technical Program Manager * Engineering Manager";
+const siteTitle = "Andrew Lacroce | Technical Program Manager * Engineering Manager";
 const siteDescription =
   "Technical Program Manager and Engineering Manager with 20+ years delivering complex software programs.";
 const socialImagePath = "/og-image.png";

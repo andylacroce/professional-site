@@ -148,7 +148,7 @@ export default function Contact() {
               <p className="contact-form-error">Please complete the captcha before sending.</p>
             )}
             {submitStatus === "success" ? (
-              <p className="contact-form-success">Message sent — thanks, I&apos;ll be in touch.</p>
+              <p className="contact-form-success">Message sent. Thanks, I&apos;ll be in touch.</p>
             ) : (
               <>
                 {submitStatus === "error" && (

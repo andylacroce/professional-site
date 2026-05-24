@@ -15,6 +15,8 @@ export default function Contact() {
   const [token, setToken] = useState<string | null>(null);
   const [captchaError, setCaptchaError] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [formOpen, setFormOpen] = useState(false);
+  const [meetingOpen, setMeetingOpen] = useState(false);
   const widgetRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
 
@@ -101,71 +103,138 @@ export default function Contact() {
           </Reveal>
         </div>
 
-        <Reveal delay={200}>
+        <div style={{ marginTop: "1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+        <Reveal delay={190}>
           <div className="contact-form-card">
-            <p className="contact-form-card-title">Send a message</p>
-          <form onSubmit={handleSubmit} className="contact-form">
-            <div className="contact-form-row">
-              <label htmlFor="contact-name" className="contact-form-label">Name</label>
-              <input
-                id="contact-name"
-                type="text"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Your name"
-                className="contact-form-input"
-              />
+            <button
+              className="contact-card-toggle"
+              onClick={() => setFormOpen((o) => !o)}
+              aria-expanded={formOpen}
+            >
+              <span className="contact-form-card-title">Send a message</span>
+              <ChevronIcon open={formOpen} />
+            </button>
+            <div className={`contact-card-body${formOpen ? " open" : ""}`}>
+              <div className="contact-card-body-inner">
+                <div className="contact-card-body-content">
+                <form onSubmit={handleSubmit} className="contact-form">
+                  <div className="contact-form-row">
+                    <label htmlFor="contact-name" className="contact-form-label">Name</label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Your name"
+                      className="contact-form-input"
+                    />
+                  </div>
+                  <div className="contact-form-row">
+                    <label htmlFor="contact-email" className="contact-form-label">Email</label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="you@example.com"
+                      className="contact-form-input"
+                    />
+                  </div>
+                  <div className="contact-form-row">
+                    <label htmlFor="contact-message" className="contact-form-label">Message</label>
+                    <textarea
+                      id="contact-message"
+                      required
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder="What's on your mind?"
+                      rows={5}
+                      className="contact-form-input contact-form-textarea"
+                    />
+                  </div>
+                  <div ref={widgetRef} />
+                  {captchaError && (
+                    <p className="contact-form-error">Please complete the captcha before sending.</p>
+                  )}
+                  {submitStatus === "success" ? (
+                    <p className="contact-form-success">Message sent — thanks, I&apos;ll be in touch.</p>
+                  ) : (
+                    <>
+                      {submitStatus === "error" && (
+                        <p className="contact-form-error">Something went wrong. Try emailing me directly.</p>
+                      )}
+                      <button
+                        type="submit"
+                        className="contact-form-submit"
+                        disabled={submitStatus === "submitting"}
+                      >
+                        {submitStatus === "submitting" ? "Sending…" : "Send message"}
+                      </button>
+                    </>
+                  )}
+                </form>
+                </div>
+              </div>
             </div>
-            <div className="contact-form-row">
-              <label htmlFor="contact-email" className="contact-form-label">Email</label>
-              <input
-                id="contact-email"
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
-                className="contact-form-input"
-              />
-            </div>
-            <div className="contact-form-row">
-              <label htmlFor="contact-message" className="contact-form-label">Message</label>
-              <textarea
-                id="contact-message"
-                required
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="What's on your mind?"
-                rows={5}
-                className="contact-form-input contact-form-textarea"
-              />
-            </div>
-            <div ref={widgetRef} />
-            {captchaError && (
-              <p className="contact-form-error">Please complete the captcha before sending.</p>
-            )}
-            {submitStatus === "success" ? (
-              <p className="contact-form-success">Message sent — thanks, I&apos;ll be in touch.</p>
-            ) : (
-              <>
-                {submitStatus === "error" && (
-                  <p className="contact-form-error">Something went wrong. Try emailing me directly.</p>
-                )}
-                <button
-                  type="submit"
-                  className="contact-form-submit"
-                  disabled={submitStatus === "submitting"}
-                >
-                  {submitStatus === "submitting" ? "Sending…" : "Send message"}
-                </button>
-              </>
-            )}
-          </form>
           </div>
         </Reveal>
+
+        <Reveal delay={190}>
+          <div className="contact-form-card">
+            <button
+              className="contact-card-toggle"
+              onClick={() => setMeetingOpen((o) => !o)}
+              aria-expanded={meetingOpen}
+            >
+              <span className="contact-form-card-title">Schedule a meeting</span>
+              <ChevronIcon open={meetingOpen} />
+            </button>
+            <div className={`contact-card-body${meetingOpen ? " open" : ""}`}>
+              <div className="contact-card-body-inner">
+                <div className="contact-card-body-content">
+                  <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)", marginBottom: "1.5rem", lineHeight: "1.65" }}>
+                    Prefer to connect live? Book time directly on my calendar. I&apos;m happy to discuss new opportunities, technical projects, or potential collaborations.
+                  </p>
+                  <a
+                    href="https://cal.com/andrew-lacroce"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-form-submit"
+                    style={{ textDecoration: "none", display: "inline-block" }}
+                  >
+                    View availability →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+        </div>
       </section>
     </>
+  );
+}
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      style={{
+        color: "var(--accent)",
+        flexShrink: 0,
+        transform: open ? "rotate(90deg)" : "rotate(0deg)",
+        transition: "transform 0.25s ease",
+      }}
+    >
+      <polyline points="9 18 15 12 9 6" />
+    </svg>
   );
 }
 

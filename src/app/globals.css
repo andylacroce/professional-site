@@ -174,14 +174,13 @@ section[id] {
 }
 
 .contact-form-card {
-  margin-top: 2.5rem;
   width: 100%;
   max-width: 480px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-top: 2px solid var(--accent);
   border-radius: 10px;
-  padding: 1.75rem;
+  overflow: hidden;
 }
 
 .contact-form-card-title {
@@ -189,7 +188,37 @@ section[id] {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1.25rem;
+  margin: 0;
+}
+
+.contact-card-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.contact-card-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.contact-card-body.open {
+  grid-template-rows: 1fr;
+}
+
+.contact-card-body-inner {
+  overflow: hidden;
+}
+
+.contact-card-body-content {
+  padding: 0 1.5rem 1.25rem;
 }
 
 .contact-form {

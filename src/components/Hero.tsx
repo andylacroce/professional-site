@@ -2,7 +2,7 @@ import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section id="home" className="pt-14 sm:pt-20 pb-12 sm:pb-16">
+    <section id="home" className="pt-6 sm:pt-10 pb-12 sm:pb-16">
       <div className="flex flex-col lg:flex-row lg:items-center gap-6 sm:gap-7 lg:gap-10">
         <Reveal delay={40} className="w-fit shrink-0">
           <a href="profile-pic.jpg" target="_blank" rel="noopener noreferrer" className="w-fit shrink-0">

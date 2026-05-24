@@ -54,7 +54,7 @@ const experienceGroups = [
         dates: "Jul 2016 – Nov 2019",
         bullets: [
           "Served as Scrum Master and program manager for the Comcast Messaging Platform (~10 DevOps engineers, 3–4 QA), responsible for all customer-facing SMS and email interactions across non-marketing channels.",
-          "Led the phased AWS migration of the messaging platform — completed bulk traffic cutover in 6 months and full migration in 10–12 months, beating the original 12–18 month target.",
+          "Led the phased AWS migration of the messaging platform; completed bulk traffic cutover in 6 months and full migration in 10–12 months, beating the original 12–18 month target.",
           "Integrated Comcast's AI assistant with the SMS platform, enabling customers to interact with automated troubleshooting workflows via interactive SMS dialog.",
         ],
       },
@@ -70,7 +70,7 @@ const experienceGroups = [
         title: "Lead Technical Project Manager",
         dates: "Jan 2011 – Jun 2016",
         bullets: [
-          "Led implementation and ongoing management of large-scale e-commerce platforms for Toys R Us (primary account), Sports Authority, and Dick's Sporting Goods — sites handling millions of users with strict uptime SLAs during peak retail seasons.",
+          "Led implementation and ongoing management of large-scale e-commerce platforms for Toys R Us (primary account), Sports Authority, and Dick's Sporting Goods, with sites handling millions of users with strict uptime SLAs during peak retail seasons.",
           "Managed cross-functional teams across engineering, operations, and business to deliver complex platform implementations and integrations on schedule and within scope.",
         ],
       },

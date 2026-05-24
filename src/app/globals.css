@@ -198,7 +198,7 @@ section[id] {
   width: 100%;
   background: none;
   border: none;
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1.25rem;
   cursor: pointer;
   font-family: inherit;
 }
@@ -218,7 +218,7 @@ section[id] {
 }
 
 .contact-card-body-content {
-  padding: 0 1.5rem 1.25rem;
+  padding: 0 1.25rem 1rem;
 }
 
 .contact-form {
@@ -312,11 +312,6 @@ section[id] {
   overflow: hidden;
 }
 
-@media (max-width: 480px) {
-  .contact-form-card {
-    padding: 1.25rem;
-  }
-}
 
 @media (max-width: 380px) {
   .contact-turnstile-wrapper {

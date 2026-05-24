@@ -7,6 +7,7 @@ Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template
 ## Current State
 
 - Single-page professional site focused on TPM / EM positioning
+- Contact section with collapsible cards for sending a message and booking a meeting (cal.com)
 - Fully responsive layout with mobile-specific nav behavior
 - Custom dark visual system with bronze/copper accents and subtle background texture
 - Coordinated font pairing for display and body copy
@@ -24,6 +25,7 @@ Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template
 - **Typography**: Google Fonts via `next/font`
 - **Analytics**: Vercel Analytics
 - **Contact Form**: Formspree (API endpoint) + Cloudflare Turnstile (spam protection)
+- **Meeting Scheduling**: cal.com (`cal.com/andrew-lacroce`)
 - **Deployment**: Vercel
 - **DNS**: Cloudflare → `andrewlacroce.com`
 
@@ -46,7 +48,7 @@ src/
     ├── Experience.tsx     # Role history with editorial card treatment
     ├── Skills.tsx         # Grouped skill categories
     ├── Projects.tsx       # Featured project cards
-    ├── Contact.tsx        # Contact links and footer note
+    ├── Contact.tsx        # Contact links, collapsible message form, and meeting scheduler
     ├── Reveal.tsx         # Reusable scroll-reveal wrapper
     └── SectionHeader.tsx  # Shared section heading component
 ```

@@ -5,7 +5,7 @@ import Script from "next/script";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 
-const TURNSTILE_SITE_KEY = "0x4AAAAAAC1H38vsaMDp8so8";
+const TURNSTILE_SITE_KEY = "3x00000000000000000000FF";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykblepl";
 
 export default function Contact() {

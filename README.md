@@ -23,6 +23,7 @@ Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template
 - **Language**: TypeScript
 - **UI Motion**: Custom CSS + Intersection Observer reveal wrapper
 - **Typography**: Google Fonts via `next/font`
+- **Analytics**: Vercel Analytics
 - **Contact Form**: Formspree (API endpoint) + Cloudflare Turnstile (spam protection)
 - **Meeting Scheduling**: cal.com (`cal.com/andrew-lacroce`)
 - **Deployment**: Vercel

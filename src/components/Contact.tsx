@@ -22,10 +22,11 @@ export default function Contact() {
 
   const tryRenderWidget = useCallback(() => {
     if (process.env.NODE_ENV === "development") return;
-    const ts = (window as unknown as { turnstile?: { render: (el: HTMLElement, opts: unknown) => string } }).turnstile;
+    const ts = (window as unknown as { turnstile?: { render: (el: HTMLElement, opts: unknown) => string; execute: (id: string) => void } }).turnstile;
     if (ts && widgetRef.current && !widgetIdRef.current) {
       widgetIdRef.current = ts.render(widgetRef.current, {
         sitekey: TURNSTILE_SITE_KEY,
+        appearance: "interaction-only",
         callback: (t: string) => { setToken(t); setCaptchaError(false); },
         "expired-callback": () => setToken(null),
         "error-callback": () => setToken(null),
@@ -41,6 +42,9 @@ export default function Contact() {
     e.preventDefault();
     if (!token && process.env.NODE_ENV !== "development") {
       setCaptchaError(true);
+      // Force the widget to surface so the user can complete it
+      const ts = (window as unknown as { turnstile?: { execute: (id: string) => void } }).turnstile;
+      if (ts && widgetIdRef.current) ts.execute(widgetIdRef.current);
       return;
     }
     setSubmitStatus("submitting");
@@ -158,7 +162,7 @@ export default function Contact() {
                     <div ref={widgetRef} />
                   </div>
                   {captchaError && (
-                    <p className="contact-form-error">Please complete the captcha before sending.</p>
+                    <p className="contact-form-error">Please complete the security check above before sending.</p>
                   )}
                   {submitStatus === "success" ? (
                     <p className="contact-form-success">Message sent — thanks, I&apos;ll be in touch.</p>

@@ -22,20 +22,13 @@ export default function About() {
         <p>
           I&apos;m a software engineering and delivery leader with 20+ years of
           experience building high-performing teams, driving Agile transformation,
-          and delivering complex technical programs at scale. I work at the
-          intersection of engineering execution and business outcomes, whether the
-          priority is stabilizing a struggling team, standing up a planning
-          framework across a large organization, or leading a cloud migration
-          without slowing critical delivery.
-        </p>
-        <p>
-          My background spans both Engineering Manager and Technical Program
-          Manager roles, so I bring technical credibility, delivery discipline,
-          and the ability to align engineering, product, and leadership around
-          clear priorities. I specialize in translating business goals into
-          executable roadmaps, managing multi-team programs in remote and
-          distributed environments, and creating the operating rhythms that keep
-          teams moving with focus and accountability.
+          and delivering complex technical programs at scale. My background spans
+          Engineering Manager and Technical Program Manager roles, giving me
+          technical credibility, delivery discipline, and the ability to align
+          engineering, product, and leadership around clear priorities. I
+          specialize in translating business goals into executable roadmaps,
+          managing multi-team programs in remote and distributed environments, and
+          creating the operating rhythms that keep teams focused and accountable.
         </p>
         <p>
           I lead through clarity, not authority, and do my best work in
@@ -43,9 +36,17 @@ export default function About() {
           are real. My focus is consistent across roles: reduce technical debt,
           break down silos, strengthen collaboration, and create the conditions for
           engineers to do their best work while delivering outcomes the business
-          can trust. I also use modern AI capabilities, including ChatGPT and
-          Claude with API integrations, as practical tools to accelerate analysis,
-          improve communication, and support better execution.
+          can trust.
+        </p>
+        <p>
+          After a long stretch of progressively demanding roles, I took an
+          intentional break. I used the time to keep building: several personal
+          software projects in modern stacks with full CI pipelines, and
+          deliberate practice with AI tools including ChatGPT, GitHub Copilot, and
+          Claude as a way to deepen my understanding of current development
+          practices rather than just move faster. I also made music a serious
+          pursuit, cleared a long backlog of books, and spent meaningful time with
+          family and friends.
         </p>
       </Reveal>
     </section>

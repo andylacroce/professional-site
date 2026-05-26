@@ -38,6 +38,21 @@ export default function Contact() {
     tryRenderWidget();
   }, [tryRenderWidget]);
 
+  useEffect(() => {
+    const openFormIfTargeted = () => {
+      if (window.location.hash === "#contact-form") {
+        setFormOpen(true);
+        // After the accordion transition (~300 ms), scroll the card into view
+        setTimeout(() => {
+          document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 320);
+      }
+    };
+    openFormIfTargeted(); // handle direct navigation / page-load with hash
+    window.addEventListener("hashchange", openFormIfTargeted);
+    return () => window.removeEventListener("hashchange", openFormIfTargeted);
+  }, []);
+
   async function handleSubmit(e: { preventDefault(): void }) {
     e.preventDefault();
     if (!token && process.env.NODE_ENV !== "development") {
@@ -97,7 +112,7 @@ export default function Contact() {
 
         <div style={{ marginTop: "1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
         <Reveal delay={190}>
-          <div className="contact-form-card">
+          <div id="contact-form" className="contact-form-card">
             <button
               className="contact-card-toggle"
               onClick={() => setFormOpen((o) => !o)}

@@ -57,8 +57,13 @@ export default function About() {
           }}
         >
           I&apos;m actively looking for Engineering Manager and Technical Program
-          Manager roles. If you have something that fits, I&apos;d like to hear
-          about it.
+          Manager roles. If you have something that fits,{" "}
+          <a
+            href="#contact-form"
+            style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px" }}
+          >
+            I&apos;d like to hear about it.
+          </a>
         </div>
       </Reveal>
     </section>

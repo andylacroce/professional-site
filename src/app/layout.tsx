@@ -6,7 +6,7 @@ import "./globals.css";
 const siteUrl = "https://andrewlacroce.com";
 const siteTitle = "Andrew Lacroce | Technical Program Manager * Engineering Manager";
 const siteDescription =
-  "Technical Program Manager and Engineering Manager with 20+ years delivering complex software programs.";
+  "Software engineering and delivery leader helping teams move faster with more clarity. 20+ years in EM and TPM roles. Open to new opportunities.";
 const socialImagePath = "/og-image.png";
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 

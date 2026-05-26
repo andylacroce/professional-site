@@ -84,6 +84,7 @@ const experienceGroups = [
       {
         title: "Technical Project Manager",
         dates: "Jan 2006 – Jan 2011",
+        description: "Technical Project Manager supporting e-learning SaaS platform delivery for Fortune 500 clients.",
         bullets: [],
       },
     ],
@@ -96,6 +97,7 @@ const experienceGroups = [
       {
         title: "Business Systems Engineer",
         dates: "Sep 2004 – Sep 2005",
+        description: "Business Systems Engineer supporting internal tooling and workflow automation in a global insurance environment.",
         bullets: [],
       },
     ],
@@ -182,6 +184,11 @@ export default function Experience() {
                           {position.dates}
                         </span>
                       </div>
+                      {"description" in position && position.description && (
+                        <p style={{ marginTop: "0.6rem", fontSize: "0.95rem", color: "var(--text-secondary)", lineHeight: 1.72 }}>
+                          {position.description}
+                        </p>
+                      )}
                       {position.bullets.length > 0 && (
                         <ul style={{ marginTop: "0.75rem", display: "flex", flexDirection: "column", gap: "0.45rem" }}>
                           {position.bullets.map((bullet, bulletIndex) => (

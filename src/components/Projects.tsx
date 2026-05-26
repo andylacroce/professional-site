@@ -8,7 +8,7 @@ const projects = [
     githubUrl: "https://github.com/andylacroce/character-chatbot-generator",
     githubSlug: "character-chatbot-generator",
     description:
-      "Full-stack Next.js chatbot hosted on Vercel, integrating the Claude API, Google Text-to-Speech, and AI image generation to support interactive voice and visual conversations with public-domain characters. Built independently to develop hands-on fluency with modern AI APIs and cloud deployment.",
+      "Built to develop hands-on fluency with modern AI APIs, full-stack deployment, and agentic conversation design. Integrates the Claude API, Google Text-to-Speech, and AI image generation to support interactive voice and visual conversations with public-domain characters.",
     tags: ["Next.js", "Claude API", "Google TTS", "TypeScript", "Vercel"],
   },
   {
@@ -17,7 +17,7 @@ const projects = [
     githubUrl: "https://github.com/andylacroce/professional-site",
     githubSlug: "professional-site",
     description:
-      "This site. Built from scratch with Next.js 15, Tailwind CSS v4, and static export, no template, no CMS. Deployed to Vercel with a custom domain via Cloudflare.",
+      "Built from scratch to practice modern frontend development and own the full deployment pipeline. No template, no CMS. Next.js 15, Tailwind CSS v4, TypeScript, deployed to Vercel with a custom domain via Cloudflare.",
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vercel"],
   },
 ];

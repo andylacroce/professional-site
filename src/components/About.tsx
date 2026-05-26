@@ -23,31 +23,43 @@ export default function About() {
           I&apos;m a software engineering and delivery leader with 20+ years of
           experience building high-performing teams, driving Agile transformation,
           and delivering complex technical programs at scale. My background spans
-          Engineering Manager and Technical Program Manager roles, giving me
+          both Engineering Manager and Technical Program Manager roles, giving me
           technical credibility, delivery discipline, and the ability to align
-          engineering, product, and leadership around clear priorities. I
-          specialize in translating business goals into executable roadmaps,
-          managing multi-team programs in remote and distributed environments, and
-          creating the operating rhythms that keep teams focused and accountable.
+          engineering, product, and leadership around clear priorities.
         </p>
         <p>
-          I lead through clarity, not authority, and do my best work in
+          I lead through clarity, not authority. I specialize in translating
+          business goals into executable roadmaps, managing multi-team programs in
+          remote and distributed environments, and creating the operating rhythms
+          that keep teams focused and accountable. I do my best work in
           high-expectation environments where the problems are hard and the stakes
-          are real. My focus is consistent across roles: reduce technical debt,
-          break down silos, strengthen collaboration, and create the conditions for
-          engineers to do their best work while delivering outcomes the business
-          can trust.
+          are real.
         </p>
         <p>
-          After a long stretch of progressively demanding roles, I took an
-          intentional break. I used the time to keep building: several personal
-          software projects in modern stacks with full CI pipelines, and
-          deliberate practice with AI tools including ChatGPT, GitHub Copilot, and
-          Claude as a way to deepen my understanding of current development
-          practices rather than just move faster. I also made music a serious
-          pursuit, cleared a long backlog of books, and spent meaningful time with
-          family and friends.
+          After a stretch of progressively demanding roles, I took an intentional
+          break: I built personal software projects in modern stacks, developed
+          hands-on fluency with AI tools including ChatGPT, GitHub Copilot, and
+          Claude, made music a serious pursuit, and spent meaningful time with
+          family.
         </p>
+      </Reveal>
+      <Reveal delay={130}>
+        <div
+          style={{
+            marginTop: "1.5rem",
+            padding: "1rem 1.25rem",
+            borderRadius: "0.5rem",
+            border: "1px solid var(--accent)",
+            background: "color-mix(in srgb, var(--accent) 8%, transparent)",
+            color: "var(--text-primary)",
+            fontSize: "1.0625rem",
+            lineHeight: 1.72,
+          }}
+        >
+          I&apos;m actively looking for Engineering Manager and Technical Program
+          Manager roles. If you have something that fits, I&apos;d like to hear
+          about it.
+        </div>
       </Reveal>
     </section>
   );

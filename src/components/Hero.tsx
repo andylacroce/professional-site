@@ -53,10 +53,10 @@ export default function Hero() {
               lineHeight: 1.72,
             }}
           >
-            20+ years driving delivery across engineering, product, and business
-            teams. I build the planning frameworks, team structures, and delivery
+            I build the planning frameworks, team structures, and delivery
             cultures that let engineers do their best work, and I apply AI tools
-            pragmatically to improve speed, decision quality, and delivery outcomes.
+            pragmatically to improve speed, decision quality, and delivery
+            outcomes.
           </p>
 
         </Reveal>

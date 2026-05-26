@@ -2,11 +2,12 @@
 
 Personal portfolio and resume site for Andrew Lacroce.
 
-Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template, no CMS. The site uses a custom dark theme, editorial typography, lightweight scroll-reveal motion, and is deployed on Vercel with a custom domain via Cloudflare. It also supports static export for a loadable `out/` build.
+Built from scratch with Next.js 16, Tailwind CSS v4, and TypeScript. No template, no CMS. The site uses a custom dark theme, editorial typography, lightweight scroll-reveal motion, and is deployed on Vercel with a custom domain via Cloudflare. It also supports static export for a loadable `out/` build.
 
 ## Current State
 
-- Single-page professional site focused on TPM / EM positioning
+- Single-page professional site focused on EM / TPM positioning
+- Open-to-work callout in the About section linking directly to the contact form
 - Contact section with collapsible cards for sending a message and booking a meeting (cal.com)
 - Fully responsive layout with mobile-specific nav behavior
 - Custom dark visual system with bronze/copper accents and subtle background texture
@@ -18,7 +19,7 @@ Built from scratch with Next.js 15, Tailwind CSS v4, and TypeScript. No template
 
 ## Stack
 
-- **Framework**: Next.js 15 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Styling**: Tailwind CSS v4
 - **Language**: TypeScript
 - **UI Motion**: Custom CSS + Intersection Observer reveal wrapper
@@ -44,11 +45,11 @@ src/
 └── components/
     ├── Nav.tsx            # Sticky nav with active-section highlighting
     ├── Hero.tsx           # Headline, summary, profile image, social links
-    ├── About.tsx          # Professional summary
+    ├── About.tsx          # Professional summary and open-to-work callout
     ├── Experience.tsx     # Role history with editorial card treatment
     ├── Skills.tsx         # Grouped skill categories
     ├── Projects.tsx       # Featured project cards
-    ├── Contact.tsx        # Contact links, collapsible message form, and meeting scheduler
+    ├── Contact.tsx        # LinkedIn link, collapsible message form, and meeting scheduler
     ├── Reveal.tsx         # Reusable scroll-reveal wrapper
     └── SectionHeader.tsx  # Shared section heading component
 ```
@@ -79,7 +80,7 @@ npm run build
 
 This command:
 
-- Runs `next build` with `output: "export"`
+- Runs `next build` with `output: "export"` (via `cross-env NODE_OPTIONS=--no-deprecation` to suppress a Node 26 deprecation from Next.js internals)
 - Generates static files in `out/`
 - Runs `scripts/fix-static-export-paths.mjs` to rewrite root-relative asset paths for clean local file loading
 

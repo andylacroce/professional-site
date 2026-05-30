@@ -1,3 +1,4 @@
+import React from "react";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 
@@ -14,11 +15,26 @@ const projects = [
   {
     name: "andrewlacroce.com",
     siteUrl: null,
+    isSelf: true,
     githubUrl: "https://github.com/andylacroce/professional-site",
     githubSlug: "professional-site",
     description:
       "Built from scratch to practice modern frontend development and own the full deployment pipeline. No template, no CMS. Next.js 16, Tailwind CSS v4, TypeScript, deployed to Vercel with a custom domain via Cloudflare.",
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vercel"],
+  },
+  {
+    name: "Nukefire MUD Scripts",
+    siteUrl: null,
+    githubUrl: "https://github.com/andylacroce/nukefire",
+    githubSlug: "nukefire",
+    description: (
+      <>
+        Built for personal use to automate and enhance playing a text-based multiplayer RPG (
+        <a href="https://nukefire.org" target="_blank" rel="noopener noreferrer" className="accent-link">nukefire.org</a>
+        ) on Windows. TinTin++ scripts handle character session management, GMCP-driven automapping, class-specific combat hooks, and a multi-window Windows Terminal launcher for coordinating multi-character group play.
+      </>
+    ),
+    tags: ["TinTin++", "PowerShell", "Python", "Windows Terminal", "MUD"],
   },
 ];
 
@@ -51,11 +67,15 @@ export default function Projects() {
                   {p.name}
                   <ExternalLinkIcon />
                 </a>
-              ) : (
+              ) : p.isSelf ? (
                 <span className="font-display inline-flex items-center gap-1.5" style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "1.0625rem", lineHeight: 1.3 }}>
                   {p.name}
                   <YouAreHereIcon />
                   <span style={{ fontSize: "0.8rem", fontWeight: 400, color: "var(--text-secondary)", opacity: 0.7 }}>(You are here)</span>
+                </span>
+              ) : (
+                <span className="font-display" style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "1.0625rem", lineHeight: 1.3 }}>
+                  {p.name}
                 </span>
               )}
               <p style={{ marginTop: "0.5rem", fontSize: "0.95rem", color: "var(--text-secondary)", lineHeight: 1.72 }}>

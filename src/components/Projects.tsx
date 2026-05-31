@@ -34,7 +34,7 @@ const projects = [
         ) on Windows. TinTin++ scripts handle character session management, GMCP-driven automapping, class-specific combat hooks, and a multi-window Windows Terminal launcher for coordinating multi-character group play.
       </>
     ),
-    tags: ["TinTin++", "PowerShell", "Python", "Windows Terminal", "MUD"],
+    tags: ["TinTin++", "PowerShell", "Windows Terminal", "MUD"],
   },
 ];
 

@@ -26,11 +26,16 @@ async function collectHtmlFiles(directory) {
 }
 
 function rewriteFileProtocolPaths(html) {
+  // /_next/** is deliberately left untouched: Next's client runtime embeds
+  // those same absolute paths inside the JS bundle itself (its chunk
+  // manifest, and the stylesheet <link> React's hydration matches by exact
+  // href) to track which scripts/styles have loaded. Rewriting only the
+  // HTML's copy of those paths to a relative form desyncs it from what the
+  // bundle expects, which hangs hydration forever with no console error.
+  // Root-relative /_next/** already resolves correctly under plain HTTP
+  // (both `serve out` and Vercel), which are the two ways this export is
+  // actually used, so there's nothing to fix for that case.
   const replacements = [
-    ["\"/_next/", "\"./_next/"],
-    ["'/_next/", "'./_next/"],
-    ["\\\"/_next/", "\\\"./_next/"],
-
     ["\"/logos/", "\"./logos/"],
     ["'/logos/", "'./logos/"],
     ["\\\"/logos/", "\\\"./logos/"],
@@ -75,7 +80,14 @@ async function inlineExportStyles(html) {
     const css = rewriteInlineCssAssetPaths(await readFile(cssPath, "utf8"));
     const inlineTag = `<style data-inline-export-css="${path.basename(href)}">${escapeInlineStyle(css)}</style>`;
 
-    nextHtml = nextHtml.replace(linkTag, inlineTag);
+    // Keep the original <link> alongside the inline copy rather than
+    // replacing it: React tracks that link by its data-precedence attribute
+    // to know when hydration can proceed, and removing it left hydration
+    // hanging forever (silently — no console error) once the export was
+    // served over HTTP. The inline <style> here only exists as a fallback
+    // for opening index.html directly via file://, where a <link> may load
+    // with the wrong MIME type.
+    nextHtml = nextHtml.replace(linkTag, `${linkTag}${inlineTag}`);
   }
 
   return nextHtml;

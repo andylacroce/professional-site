@@ -17,6 +17,14 @@ export default function Nav() {
   const manualSelectionUntilRef = useRef(0);
 
   useEffect(() => {
+    // A deterministic hydration signal for E2E tests: the static export in
+    // particular paints markup before React attaches handlers, and this
+    // element mounts on every page, so waiting on it beats guessing at a
+    // network-idle timeout.
+    document.documentElement.dataset.hydrated = "true";
+  }, []);
+
+  useEffect(() => {
     const sections = links
       .map((link) => document.querySelector<HTMLElement>(link.href))
       .filter((section): section is HTMLElement => Boolean(section));

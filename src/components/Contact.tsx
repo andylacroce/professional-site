@@ -67,7 +67,7 @@ export default function Contact() {
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, "cf-turnstile-response": token }),
       });
       if (res.ok) {
         setSubmitStatus("success");
@@ -96,13 +96,13 @@ export default function Contact() {
         <Reveal>
           <SectionHeader>Contact</SectionHeader>
         </Reveal>
-        <div style={{ marginTop: "1rem", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "0.25rem" }}>
+        <div className="contact-links">
           <Reveal delay={70}>
             <a href="https://www.linkedin.com/in/andrew-lacroce/" target="_blank" rel="noopener noreferrer" className="contact-row">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ color: "var(--accent)", flexShrink: 0 }}>
+              <svg className="contact-row-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
-              <span className="contact-row-label" style={{ fontSize: "0.925rem", color: "var(--text-secondary)" }}>
+              <span className="contact-row-label">
                 LinkedIn
               </span>
               <ExternalLinkIcon />
@@ -110,7 +110,7 @@ export default function Contact() {
           </Reveal>
         </div>
 
-        <div style={{ marginTop: "1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+        <div className="contact-cards">
         <Reveal delay={190}>
           <div id="contact-form" className="contact-form-card">
             <button
@@ -118,11 +118,11 @@ export default function Contact() {
               onClick={() => setFormOpen((o) => !o)}
               aria-expanded={formOpen}
             >
-              <span className="contact-form-card-title" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+              <span className="contact-form-card-title">
                 <MailIcon />
                 Send an email
               </span>
-              <ChevronIcon open={formOpen} />
+              <ChevronIcon />
             </button>
             <div className={`contact-card-body${formOpen ? " open" : ""}`}>
               <div className="contact-card-body-inner">
@@ -200,16 +200,16 @@ export default function Contact() {
               onClick={() => setMeetingOpen((o) => !o)}
               aria-expanded={meetingOpen}
             >
-              <span className="contact-form-card-title" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+              <span className="contact-form-card-title">
                 <CalendarIcon />
                 Schedule a meeting
               </span>
-              <ChevronIcon open={meetingOpen} />
+              <ChevronIcon />
             </button>
             <div className={`contact-card-body${meetingOpen ? " open" : ""}`}>
               <div className="contact-card-body-inner">
                 <div className="contact-card-body-content">
-                  <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)", marginBottom: "1.5rem", lineHeight: "1.65" }}>
+                  <p className="contact-meeting-copy">
                     Prefer to connect live? Book time directly on my calendar. I&apos;m happy to discuss new opportunities, technical projects, or potential collaborations.
                   </p>
                   <a
@@ -217,7 +217,6 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contact-form-submit"
-                    style={{ textDecoration: "none", display: "inline-block" }}
                   >
                     Book a 30-minute intro call →
                   </a>
@@ -232,22 +231,9 @@ export default function Contact() {
   );
 }
 
-function ChevronIcon({ open }: { open: boolean }) {
+function ChevronIcon() {
   return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      style={{
-        color: "var(--accent)",
-        flexShrink: 0,
-        transform: open ? "rotate(90deg)" : "rotate(0deg)",
-        transition: "transform 0.25s ease",
-      }}
-    >
+    <svg className="chevron-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <polyline points="9 18 15 12 9 6" />
     </svg>
   );
@@ -255,7 +241,7 @@ function ChevronIcon({ open }: { open: boolean }) {
 
 function CalendarIcon() {
   return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ flexShrink: 0 }}>
+    <svg className="contact-card-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <rect x="3" y="4" width="18" height="18" rx="2" />
       <line x1="16" y1="2" x2="16" y2="6" />
       <line x1="8" y1="2" x2="8" y2="6" />
@@ -266,7 +252,7 @@ function CalendarIcon() {
 
 function MailIcon() {
   return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ flexShrink: 0 }}>
+    <svg className="contact-card-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <path d="m22 6-10 7L2 6" />
     </svg>
@@ -275,7 +261,7 @@ function MailIcon() {
 
 function ExternalLinkIcon() {
   return (
-    <svg className="contact-row-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: "var(--text-secondary)", flexShrink: 0 }}>
+    <svg className="contact-row-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
       <polyline points="15 3 21 3 21 9" />
       <line x1="10" y1="14" x2="21" y2="3" />

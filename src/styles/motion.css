@@ -1,0 +1,24 @@
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body,
+  .reveal,
+  .project-card,
+  .experience-item,
+  .contact-row,
+  .contact-row-chevron,
+  .skill-row,
+  .accent-link,
+  .accent-link svg,
+  .chevron-icon,
+  .theme-toggle {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+  }
+}

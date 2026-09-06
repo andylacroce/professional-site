@@ -1,0 +1,49 @@
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent-light);
+  border-color: color-mix(in srgb, var(--accent) 34%, var(--border));
+}
+
+/* Icon shown = the theme a click switches TO, mirroring the same
+   default-light / system-dark-media-query / explicit-override cascade
+   tokens.css uses, so it always matches the theme actually applied to
+   <html> without any JS needed to keep it in sync. */
+.theme-toggle-icon {
+  display: none;
+}
+
+.theme-toggle-icon-moon {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .theme-toggle-icon-moon {
+    display: none;
+  }
+
+  html:not([data-theme="light"]) .theme-toggle-icon-sun {
+    display: block;
+  }
+}
+
+html[data-theme="dark"] .theme-toggle-icon-moon {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle-icon-sun {
+  display: block;
+}

@@ -1,0 +1,58 @@
+.skills-list {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-group:not(:last-child) {
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+}
+
+.skill-row {
+  padding: 1rem 0.75rem;
+  margin: 0 -0.75rem;
+  gap: 0.4rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.skill-row:hover {
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+.skill-label-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.skill-bullet {
+  color: var(--accent);
+  font-size: 0.5em;
+  flex-shrink: 0;
+  margin-top: 0.38rem;
+  line-height: 1;
+}
+
+.skill-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.skill-items {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.skill-items-separator {
+  color: var(--accent);
+  opacity: 0.6;
+  margin: 0 0.38em;
+}

@@ -1,7 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import "./globals.css";
+
+// Applies a previously-chosen theme to <html> before hydration so there's no
+// flash of the wrong theme; unset (no stored preference) intentionally does
+// nothing here and lets globals.css's prefers-color-scheme media query
+// handle it instead.
+const THEME_INIT_SCRIPT = `try {
+  var t = localStorage.getItem("theme");
+  if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+} catch (e) {}`;
 
 const siteUrl = "https://andrewlacroce.com";
 const siteTitle = "Andrew Lacroce | Technical Program Manager * Engineering Manager";
@@ -48,7 +58,7 @@ export const metadata: Metadata = {
         google: googleSiteVerification,
       }
     : undefined,
-  referrer: "origin-when-cross-origin",
+  referrer: "strict-origin-when-cross-origin",
   robots: {
     index: true,
     follow: true,
@@ -131,6 +141,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${bodyFont.variable} ${displayFont.variable}`}>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {THEME_INIT_SCRIPT}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}

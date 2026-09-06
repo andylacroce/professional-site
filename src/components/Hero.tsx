@@ -12,8 +12,7 @@ export default function Hero() {
               alt="Andrew Lacroce"
               width={220}
               height={220}
-              className="rounded-full w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52"
-              style={{ border: "2px solid var(--border)" }}
+              className="hero-photo rounded-full w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52"
               loading="eager"
             />
           </a>
@@ -21,38 +20,15 @@ export default function Hero() {
 
         <Reveal delay={120} className="max-w-2xl flex flex-col gap-4 sm:gap-5">
           <div>
-            <h1
-              className="font-display"
-              style={{
-                fontSize: "clamp(2rem, 5vw, 2.75rem)",
-                fontWeight: 600,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.1,
-                color: "var(--text-primary)",
-              }}
-            >
+            <h1 className="hero-name font-display">
               Andrew Lacroce
             </h1>
-            <p
-              style={{
-                fontSize: "1.1875rem",
-                color: "var(--accent-light)",
-                marginTop: "0.375rem",
-                fontWeight: 500,
-              }}
-            >
-              Technical Program Manager{" "}<span style={{ color: "var(--accent)" }}>✦</span>{" "}Engineering Manager
+            <p className="hero-role">
+              Technical Program Manager{" "}<span className="hero-role-accent">✦</span>{" "}Engineering Manager
             </p>
           </div>
 
-          <p
-            style={{
-              fontSize: "1.0625rem",
-              color: "var(--text-secondary)",
-              maxWidth: "62ch",
-              lineHeight: 1.72,
-            }}
-          >
+          <p className="hero-summary">
             I build the planning frameworks, team structures, and delivery
             cultures that let engineers do their best work, and I apply AI tools
             pragmatically to improve speed, decision quality, and delivery

@@ -13,6 +13,8 @@ Given the site's shape, realistic risk areas are:
 
 There is no user-submitted content rendered back to other visitors, so stored/reflected XSS from site content is not applicable.
 
+Security headers (CSP, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`) are set in `vercel.json`. The CSP's `script-src`/`style-src` include `'unsafe-inline'` because the static export always ships an unnonced inline hydration script (`self.__next_f.push`) and an inline `<style>` block (from `scripts/fix-static-export-paths.mjs`, needed for the `file://` case) in every HTML file — there is no server at request time to mint per-request nonces for a purely static export. External sources are scoped tightly to the two hosts the site actually calls: `challenges.cloudflare.com` (Turnstile) and `formspree.io` (form submission).
+
 ## Supported Versions
 
 This project is continuously deployed from the `main` branch — there is no versioned release history to maintain. Only the current `main` branch receives fixes; there is nothing to backport to.

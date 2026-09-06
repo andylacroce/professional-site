@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 
@@ -110,28 +111,17 @@ export default function Experience() {
       <Reveal>
         <SectionHeader>Experience</SectionHeader>
       </Reveal>
-      <div style={{ marginTop: "1.5rem", display: "flex", flexDirection: "column", gap: "2.5rem" }}>
+      <div className="experience-list">
         {experienceGroups.map((group, index) => (
           <Reveal key={group.company} delay={index * 55}>
             <div className="experience-item flex flex-col sm:flex-row gap-4 sm:gap-6">
-              <div className="w-[88px] sm:w-[96px]" style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "0.15rem" }}>
+              <div className="w-[88px] sm:w-[96px] shrink-0 flex flex-col items-center pt-[0.15rem]">
                 <a
                   href={group.homepage}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visit ${group.company} homepage`}
-                  style={{
-                    width: "100%",
-                    height: "44px",
-                    borderRadius: "6px",
-                    border: "1px solid var(--border)",
-                    background: "#ffffff",
-                    overflow: "hidden",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "6px 8px",
-                  }}
+                  className="experience-logo-frame"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -140,63 +130,42 @@ export default function Experience() {
                     width={80}
                     height={32}
                     loading="lazy"
+                    className="experience-logo"
                     style={{
-                      objectFit: group.logoFit ?? "contain",
-                      objectPosition: group.logoPosition ?? "center",
-                      width: "100%",
-                      height: "100%",
-                    }}
+                      "--logo-object-fit": group.logoFit ?? "contain",
+                      "--logo-object-position": group.logoPosition ?? "center",
+                    } as CSSProperties}
                   />
                 </a>
               </div>
 
-              <div style={{ flex: 1 }}>
-                <div
-                  style={{
-                    color: "var(--text-primary)",
-                    fontSize: "0.8125rem",
-                    fontWeight: 600,
-                    opacity: 0.82,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    marginBottom: group.positions.length > 1 ? "0.9rem" : "0.4rem",
-                  }}
-                >
+              <div className="flex-1">
+                <div className="experience-company">
                   {group.company}
                 </div>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: group.positions.length > 1 ? "1rem" : 0 }}>
-                  {group.positions.map((position, positionIndex) => (
-                    <div
-                      key={`${group.company}-${position.title}`}
-                      style={{
-                        paddingTop: positionIndex > 0 ? "1rem" : 0,
-                        borderTop: positionIndex > 0 ? "1px solid color-mix(in srgb, var(--border) 85%, transparent)" : "none",
-                      }}
-                    >
+                <div className="experience-positions">
+                  {group.positions.map((position) => (
+                    <div key={`${group.company}-${position.title}`} className="experience-position">
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5">
                         <div className="flex flex-col gap-1">
-                          <span className="font-display" style={{ fontWeight: 600, color: "var(--text-primary)", fontSize: "1.0625rem", lineHeight: 1.25 }}>
+                          <span className="experience-title font-display">
                             {position.title}
                           </span>
                         </div>
-                        <span className="sm:whitespace-nowrap" style={{ fontSize: "0.8125rem", color: "var(--accent-light)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                        <span className="experience-dates sm:whitespace-nowrap">
                           {position.dates}
                         </span>
                       </div>
                       {"description" in position && position.description && (
-                        <p style={{ marginTop: "0.6rem", fontSize: "0.95rem", color: "var(--text-secondary)", lineHeight: 1.72 }}>
+                        <p className="experience-description">
                           {position.description}
                         </p>
                       )}
                       {position.bullets.length > 0 && (
-                        <ul style={{ marginTop: "0.75rem", display: "flex", flexDirection: "column", gap: "0.45rem" }}>
+                        <ul className="experience-bullets">
                           {position.bullets.map((bullet, bulletIndex) => (
-                            <li
-                              key={bulletIndex}
-                              style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.72, paddingLeft: "0.75rem", position: "relative" }}
-                            >
-                              <span style={{ position: "absolute", left: 0, color: "var(--accent)", fontSize: "0.6em", top: "0.45em" }}>✦</span>
+                            <li key={bulletIndex} className="experience-bullet">
                               {bullet}
                             </li>
                           ))}

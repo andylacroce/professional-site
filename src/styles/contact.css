@@ -1,0 +1,219 @@
+.contact-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  margin: 0 -0.5rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.contact-row:hover {
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+.contact-row-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.contact-row-label {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+}
+
+.contact-row:hover .contact-row-label {
+  color: var(--accent-light);
+}
+
+.contact-row-chevron {
+  transition: transform 0.2s ease, color 0.2s ease;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.contact-row:hover .contact-row-chevron {
+  transform: translateX(3px);
+  color: var(--accent-light);
+}
+
+.contact-links {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.contact-cards {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contact-form-card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-form-card-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+.contact-card-icon {
+  flex-shrink: 0;
+}
+
+.contact-card-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.chevron-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.contact-card-toggle[aria-expanded="true"] .chevron-icon {
+  transform: rotate(90deg);
+}
+
+.contact-card-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.contact-card-body.open {
+  grid-template-rows: 1fr;
+}
+
+.contact-card-body-inner {
+  overflow: hidden;
+}
+
+.contact-card-body-content {
+  padding: 0 1.25rem 1rem;
+}
+
+.contact-meeting-copy {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.contact-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.contact-form-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.contact-form-input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 0.925rem;
+  padding: 0.55rem 0.75rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+  resize: none;
+}
+
+.contact-form-input::placeholder {
+  color: color-mix(in srgb, var(--text-secondary) 50%, transparent);
+}
+
+.contact-form-input:focus {
+  border-color: var(--accent);
+}
+
+.contact-form-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contact-form-textarea {
+  min-height: 120px;
+}
+
+.contact-form-submit {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 1.25rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.contact-form-submit:hover:not(:disabled) {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.contact-form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contact-form-success {
+  font-size: 0.9rem;
+  color: var(--accent-light);
+}
+
+.contact-form-error {
+  font-size: 0.875rem;
+  color: var(--error);
+  margin-bottom: 0.25rem;
+}
+
+/* Cloudflare Turnstile — hidden until interaction is required */
+.contact-turnstile-wrapper {
+  overflow: hidden;
+}

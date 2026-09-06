@@ -1,0 +1,39 @@
+.site-nav {
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 97%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.site-nav.is-scrolled {
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+}
+
+.nav-brand {
+  color: var(--accent);
+  letter-spacing: 0.01em;
+}
+
+.nav-linkedin-link {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-color: color-mix(in srgb, var(--accent) 34%, var(--border));
+  color: var(--accent-light);
+  background: color-mix(in srgb, var(--accent-soft) 72%, transparent);
+  flex-shrink: 0;
+}
+
+.nav-pill-link {
+  color: var(--text-primary);
+  font-size: 1rem;
+  background: transparent;
+  border-color: transparent;
+}
+
+.nav-pill-link:hover {
+  color: var(--text-primary) !important;
+}
+
+.nav-pill-link[aria-current="page"] {
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}

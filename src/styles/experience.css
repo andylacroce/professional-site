@@ -1,0 +1,129 @@
+.experience-list {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.experience-item {
+  position: relative;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0));
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.experience-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+  opacity: 0.55;
+}
+
+.experience-item:hover {
+  border-color: color-mix(in srgb, var(--accent) 24%, var(--border));
+  background: linear-gradient(180deg, rgba(185, 137, 82, 0.06), rgba(255, 255, 255, 0.01));
+  transform: translateY(-1px);
+}
+
+.experience-logo-frame {
+  width: 100%;
+  height: 44px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--logo-frame-bg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px;
+}
+
+.experience-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: var(--logo-object-fit, contain);
+  object-position: var(--logo-object-position, center);
+}
+
+.experience-company {
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  opacity: 0.82;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+/* A company with multiple positions needs more air below its name and gap
+   between position blocks; :has() checks the sibling list that follows so
+   this stays in CSS instead of a JS-computed conditional style. */
+.experience-company:has(~ .experience-positions > :nth-child(2)) {
+  margin-bottom: 0.9rem;
+}
+
+.experience-positions {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-positions:has(> :nth-child(2)) {
+  gap: 1rem;
+}
+
+.experience-position + .experience-position {
+  padding-top: 1rem;
+  border-top: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+}
+
+.experience-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.0625rem;
+  line-height: 1.25;
+}
+
+.experience-dates {
+  font-size: 0.8125rem;
+  color: var(--accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.experience-description {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.72;
+}
+
+.experience-bullets {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.experience-bullet {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.72;
+  padding-left: 0.75rem;
+  position: relative;
+}
+
+.experience-bullet::before {
+  content: "\2726";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.6em;
+  top: 0.45em;
+}

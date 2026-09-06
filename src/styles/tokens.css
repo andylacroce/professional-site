@@ -1,0 +1,68 @@
+/* Light is the site's default. Dark values are layered on top:
+   automatically for visitors whose OS prefers dark and who haven't picked
+   a theme explicitly (the :not([data-theme="light"]) guard), and always for
+   anyone who has explicitly chosen a theme via ThemeToggle ([data-theme]).
+   ThemeToggle persists the explicit choice to localStorage and a
+   beforeInteractive script in layout.tsx applies it before first paint. */
+:root {
+  --bg: #f6f3ee;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --border: #e2dbcf;
+  --text-primary: #211d17;
+  --text-secondary: #5c5346;
+  --accent: #96682f;
+  --accent-light: #7c5424;
+  --accent-soft: rgba(150, 104, 47, 0.12);
+  --error: #b3392f;
+  --body-bg:
+    radial-gradient(circle at top left, rgba(91, 128, 120, 0.1), transparent 34%),
+    radial-gradient(circle at top right, rgba(185, 137, 82, 0.12), transparent 28%),
+    linear-gradient(180deg, #faf8f4 0%, #f6f3ee 42%, #f3efe8 100%);
+  --body-grid-line: rgba(0, 0, 0, 0.035);
+  --body-noise-a: rgba(150, 104, 47, 0.06);
+  --body-noise-b: rgba(91, 128, 120, 0.07);
+  --logo-frame-bg: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a1112;
+    --surface: #10191a;
+    --surface-elevated: #152022;
+    --border: #263436;
+    --text-primary: #edf0ea;
+    --text-secondary: #b0bbb6;
+    --accent: #b98952;
+    --accent-light: #d9b48a;
+    --accent-soft: rgba(185, 137, 82, 0.16);
+    --error: #d98888;
+    --body-bg:
+      radial-gradient(circle at top left, rgba(91, 128, 120, 0.18), transparent 34%),
+      radial-gradient(circle at top right, rgba(185, 137, 82, 0.18), transparent 28%),
+      linear-gradient(180deg, #091113 0%, #0b1415 42%, #0c1111 100%);
+    --body-grid-line: rgba(255, 255, 255, 0.018);
+    --body-noise-a: rgba(217, 180, 138, 0.08);
+    --body-noise-b: rgba(119, 153, 145, 0.08);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a1112;
+  --surface: #10191a;
+  --surface-elevated: #152022;
+  --border: #263436;
+  --text-primary: #edf0ea;
+  --text-secondary: #b0bbb6;
+  --accent: #b98952;
+  --accent-light: #d9b48a;
+  --accent-soft: rgba(185, 137, 82, 0.16);
+  --error: #d98888;
+  --body-bg:
+    radial-gradient(circle at top left, rgba(91, 128, 120, 0.18), transparent 34%),
+    radial-gradient(circle at top right, rgba(185, 137, 82, 0.18), transparent 28%),
+    linear-gradient(180deg, #091113 0%, #0b1415 42%, #0c1111 100%);
+  --body-grid-line: rgba(255, 255, 255, 0.018);
+  --body-noise-a: rgba(217, 180, 138, 0.08);
+  --body-noise-b: rgba(119, 153, 145, 0.08);
+}

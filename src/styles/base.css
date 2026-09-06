@@ -1,0 +1,69 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--body-bg);
+  color: var(--text-primary);
+  font-family: var(--font-body), sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--body-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--body-grid-line) 1px, transparent 1px),
+    radial-gradient(circle at 20% 20%, var(--body-noise-a), transparent 24%),
+    radial-gradient(circle at 80% 0%, var(--body-noise-b), transparent 28%);
+  background-size: 32px 32px, 32px 32px, auto, auto;
+  opacity: 0.3;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 92%);
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+  font-variation-settings: "SOFT" 40, "WONK" 0;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+.section-divider {
+  border-color: var(--border);
+}
+
+section[id],
+#contact-form {
+  scroll-margin-top: 5.75rem;
+}
+
+/* Shared hover treatment for any accent-colored link/icon pairing
+   (project links, contact rows, GitHub links, etc). */
+.accent-link {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.accent-link:hover {
+  color: var(--accent-light) !important;
+}
+
+.accent-link svg {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.accent-link:hover svg {
+  transform: translateX(1px);
+}

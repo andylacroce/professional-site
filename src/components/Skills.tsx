@@ -60,24 +60,21 @@ export default function Skills() {
       <Reveal>
         <SectionHeader>Skills</SectionHeader>
       </Reveal>
-      <div className="mt-5" style={{ display: "flex", flexDirection: "column" }}>
+      <div className="skills-list">
         {groups.map((g, index) => (
           <Reveal key={g.label} delay={index * 45}>
-            <div style={{ borderBottom: index < groups.length - 1 ? "1px solid color-mix(in srgb, var(--border) 50%, transparent)" : "none" }}>
-              <div
-                className="skill-row flex flex-col sm:flex-row sm:gap-8"
-                style={{ padding: "1rem 0.75rem", margin: "0 -0.75rem", gap: "0.4rem" }}
-              >
-                <div className="shrink-0 sm:w-44" style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem" }}>
-                  <span style={{ color: "var(--accent)", fontSize: "0.5em", flexShrink: 0, marginTop: "0.38rem", lineHeight: 1 }}>✦</span>
-                  <p style={{ fontSize: "0.72rem", fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.08em", textTransform: "uppercase", margin: 0, lineHeight: 1.45 }}>
+            <div className="skill-group">
+              <div className="skill-row flex flex-col sm:flex-row sm:gap-8">
+                <div className="skill-label-wrap shrink-0 sm:w-44">
+                  <span className="skill-bullet">✦</span>
+                  <p className="skill-label">
                     {g.label}
                   </p>
                 </div>
-                <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)", lineHeight: 1.65, margin: 0 }}>
+                <p className="skill-items">
                   {g.items.map((item, i) => (
                     <span key={item}>
-                      {i > 0 && <span style={{ color: "var(--accent)", opacity: 0.6, margin: "0 0.38em" }}>·</span>}
+                      {i > 0 && <span className="skill-items-separator">·</span>}
                       {item}
                     </span>
                   ))}

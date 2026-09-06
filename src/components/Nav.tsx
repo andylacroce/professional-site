@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { href: "#about", label: "About" },
@@ -87,12 +88,7 @@ export default function Nav() {
 
   return (
     <nav
-      style={{
-        borderBottom: "1px solid var(--border)",
-        background: scrolled ? "rgba(10, 17, 18, 0.9)" : "rgba(10, 17, 18, 0.97)",
-        backdropFilter: "blur(12px)",
-      }}
-      className="sticky top-0 z-50 transition-all duration-300"
+      className={`site-nav sticky top-0 z-50 transition-all duration-300${scrolled ? " is-scrolled" : ""}`}
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-2 sm:py-0 sm:h-14 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-2">
         <div className="flex items-center gap-2.5 sm:gap-3">
@@ -103,8 +99,7 @@ export default function Nav() {
               setActiveHref("");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="font-display text-xl sm:text-xl md:text-2xl leading-none"
-            style={{ color: "var(--accent)", letterSpacing: "0.01em" }}
+            className="nav-brand font-display text-xl sm:text-xl md:text-2xl leading-none"
           >
             Andrew Lacroce
           </a>
@@ -113,18 +108,11 @@ export default function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Andrew Lacroce on LinkedIn"
-            className="accent-link inline-flex items-center justify-center rounded-full border"
-            style={{
-              width: "1.9rem",
-              height: "1.9rem",
-              borderColor: "color-mix(in srgb, var(--accent) 34%, var(--border))",
-              color: "var(--accent-light)",
-              background: "color-mix(in srgb, var(--accent-soft) 72%, transparent)",
-              flexShrink: 0,
-            }}
+            className="nav-linkedin-link accent-link inline-flex items-center justify-center rounded-full border"
           >
             <LinkedInIcon />
           </a>
+          <ThemeToggle />
         </div>
         <ul className="w-full sm:w-auto flex flex-wrap sm:flex-nowrap gap-x-3 gap-y-1 sm:gap-2 md:gap-3">
           {links.map((l) => (
@@ -136,13 +124,7 @@ export default function Nav() {
                   manualSelectionUntilRef.current = Date.now() + 1200;
                 }}
                 aria-current={activeHref === l.href ? "page" : undefined}
-                style={{
-                  color: "var(--text-primary)",
-                  fontSize: "1rem",
-                  background: activeHref === l.href ? "var(--accent-soft)" : "transparent",
-                  borderColor: activeHref === l.href ? "color-mix(in srgb, var(--accent) 30%, transparent)" : "transparent",
-                }}
-                className="accent-link nav-pill-link inline-flex min-h-8 items-center whitespace-nowrap rounded-full border px-2.5 sm:min-h-0 sm:px-2.5 sm:py-0.5 sm:text-base"
+                className="nav-pill-link accent-link inline-flex min-h-8 items-center whitespace-nowrap rounded-full border px-2.5 sm:min-h-0 sm:px-2.5 sm:py-0.5 sm:text-base"
               >
                 {l.label}
               </a>

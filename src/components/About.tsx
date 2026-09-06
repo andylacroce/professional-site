@@ -7,18 +7,7 @@ export default function About() {
       <Reveal>
         <SectionHeader>About</SectionHeader>
       </Reveal>
-      <Reveal
-        delay={70}
-        style={{
-          color: "var(--text-secondary)",
-          lineHeight: 1.82,
-          fontSize: "1.0625rem",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          marginTop: "1.25rem",
-        }}
-      >
+      <Reveal delay={70} className="about-body">
         <p>
           I&apos;m a software engineering and delivery leader with 20+ years of
           experience building high-performing teams, driving Agile transformation,
@@ -44,24 +33,10 @@ export default function About() {
         </p>
       </Reveal>
       <Reveal delay={130}>
-        <div
-          style={{
-            marginTop: "1.5rem",
-            padding: "1rem 1.25rem",
-            borderRadius: "0.5rem",
-            border: "1px solid var(--accent)",
-            background: "color-mix(in srgb, var(--accent) 8%, transparent)",
-            color: "var(--text-primary)",
-            fontSize: "1.0625rem",
-            lineHeight: 1.72,
-          }}
-        >
+        <div className="about-callout">
           I&apos;m actively looking for Engineering Manager and Technical Program
           Manager roles. If you have something that fits,{" "}
-          <a
-            href="#contact-form"
-            style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px" }}
-          >
+          <a href="#contact-form" className="about-callout-link">
             I&apos;d like to hear about it.
           </a>
         </div>

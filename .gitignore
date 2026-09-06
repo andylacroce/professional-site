@@ -12,6 +12,12 @@ out/
 .turbo/
 coverage/
 
+# Test artifacts (regenerated on every run; visual baselines under
+# e2e/**/*-snapshots/ are intentionally NOT ignored, they're committed)
+playwright-report/
+test-results/
+blob-report/
+
 # environment variables
 .env
 .env.*
@@ -32,4 +38,4 @@ Thumbs.db
 
 # TypeScript
 next-env.d.ts
-tsconfig.tsbuildinfo
+*.tsbuildinfo

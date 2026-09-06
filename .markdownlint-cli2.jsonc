@@ -1,0 +1,12 @@
+{
+  "config": {
+    "default": true,
+    // Docs here (README, CLAUDE.md, SECURITY.md) use long-form prose
+    // paragraphs by design, not hard-wrapped lines.
+    "MD013": false,
+    // CLAUDE.md intentionally starts with `@AGENTS.md` (Claude Code's
+    // file-import syntax), not a heading.
+    "MD041": false
+  },
+  "ignores": ["node_modules", ".next", "out", "coverage", "playwright-report", "test-results"]
+}

@@ -16,6 +16,7 @@ Built from scratch with Next.js 16, Tailwind CSS v4, and TypeScript. No template
 - Lightweight reveal animations with `prefers-reduced-motion` support
 - Profile image used for both the hero and favicon
 - Static export support with post-build path normalization for `file://` compatibility
+- Linting, unit/component tests, and E2E/responsive/visual-regression tests gate every build (see [Testing](#testing))
 
 ## Stack
 
@@ -29,6 +30,9 @@ Built from scratch with Next.js 16, Tailwind CSS v4, and TypeScript. No template
 - **Meeting Scheduling**: cal.com (`cal.com/andrew-lacroce`)
 - **Deployment**: Vercel
 - **DNS**: Cloudflare → `andrewlacroce.com`
+- **Linting**: ESLint (`eslint-config-next`, zero warnings enforced)
+- **Unit/Component Tests**: Vitest + React Testing Library
+- **E2E Tests**: Playwright
 
 ## Structure
 
@@ -66,11 +70,28 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Available Scripts
 
 ```bash
-npm run dev    # Start local development server
-npm run build  # Create production build and export a file-loadable out/ folder
-npm run start  # Start Next.js production server
-npm run lint   # Run linting
+npm run dev                       # Start local development server
+npm run build                     # Create production build and export a file-loadable out/ folder
+npm run start                     # Start Next.js production server
+npm run lint                      # ESLint, zero warnings allowed
+npm run lint:md                   # markdownlint-cli2 (same rules as the VS Code extension)
+npm run typecheck                 # tsc --noEmit
+npm run test                      # Run unit/component tests once (Vitest)
+npm run test:watch                # Unit tests in watch mode
+npm run test:coverage             # Unit tests with the 90% coverage gate
+npm run test:e2e                  # Run the full Playwright suite (needs a prior `npm run build` — see below)
+npm run test:e2e:update-snapshots # Regenerate visual regression baselines
+npm run ci                        # lint -> typecheck -> test:coverage -> build -> test:e2e, with a summary at the end
 ```
+
+## Testing
+
+- **Unit/component tests** (`src/**/__tests__/`, Vitest + React Testing Library) cover component rendering and behavior — Nav's scroll-driven active-link highlighting, Reveal's IntersectionObserver logic, Contact's form/Turnstile/deep-linking flows, and the page composition. Coverage is enforced at 90% (statements/branches/functions/lines) via `vitest.config.mts`.
+- **E2E tests** (`e2e/`, Playwright) run the full functional/responsive/visual-regression matrix across mobile/tablet/desktop viewports against the actual static-export build (`out/`) served the way it ships, plus a single smoke project against `next dev`. Network calls to Formspree and Cloudflare Turnstile are stubbed (`e2e/fixtures.ts`) so tests never fire a real submission.
+  - The static export is the deploy target and a stateless file server, so it's fast and reliable. `next dev` is a single process that compiles routes on demand; throwing the full viewport matrix at it produced occasional, unpredictable hydration timeouts under parallel load, so it only gets one project (`desktop-dynamic`) as a "the dev server basically works" check.
+- The static-export target serves whatever's already in `out/` rather than rebuilding it, so a full `next build` isn't duplicated on every E2E run. Run `npm run build` first if you're calling `npm run test:e2e` directly instead of through `npm run ci` — otherwise those tests run against a stale (or missing) `out/`.
+- Visual baselines under `e2e/**/*-snapshots/` are Windows-rendered PNGs; CI runs on `windows-latest` to keep them meaningful (Playwright namespaces snapshots by OS, and no Docker was available locally to produce Linux-matching baselines instead).
+- `npm run ci` (`scripts/run-ci.mjs`) is what `.github/workflows/ci.yml` runs, so it's the fastest way to reproduce a CI failure locally. It runs each gate in order, stops at the first failure, and always ends with a compact colored summary — per-gate pass/fail and timing, coverage vs. the 90% threshold, and E2E pass/fail/flaky counts — whether the run succeeded or not. Console output otherwise stays quiet (the `dot` reporter); GitHub Actions additionally gets PR annotations for E2E failures.
 
 ## Build
 

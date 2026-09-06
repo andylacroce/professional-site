@@ -6,7 +6,15 @@
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build && node scripts/fix-static-export-paths.mjs",
     "start": "next start",
-    "lint": "eslint src/"
+    "lint": "eslint --max-warnings=0 .",
+    "lint:md": "markdownlint-cli2 \"**/*.md\"",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:update-snapshots": "playwright test --update-snapshots",
+    "ci": "node scripts/run-ci.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -18,14 +26,25 @@
     "postcss": "^8.5.10"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.0.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitest/coverage-v8": "^5.0.0",
     "cross-env": "^10.1.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "16.2.6",
+    "jsdom": "^30.0.1",
+    "markdownlint-cli2": "^0.23.2",
+    "serve": "^14.2.6",
     "tailwindcss": "^4.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "vitest": "^5.0.0"
   }
 }

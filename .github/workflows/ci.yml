@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: Lint, test, and build
+    # Playwright's visual-regression baselines are namespaced by OS, and were
+    # generated on Windows (no Docker available to produce Linux-matching
+    # ones instead) — running CI on windows-latest keeps those baselines
+    # meaningful instead of failing on a platform mismatch on every run.
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium firefox webkit
+
+      # Runs lint -> typecheck -> unit tests (90% coverage gate) -> build ->
+      # E2E tests in order, stopping at the first failure, and always prints
+      # a compact pass/fail summary at the end (scripts/run-ci.mjs) —
+      # exactly mirrors `npm run ci` locally.
+      - name: Run CI pipeline
+        run: npm run ci
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14

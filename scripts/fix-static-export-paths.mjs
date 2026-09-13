@@ -43,6 +43,14 @@ function rewriteFileProtocolPaths(html) {
     ["\"/profile-pic.jpg\"", "\"./profile-pic.jpg\""],
     ["'/profile-pic.jpg'", "'./profile-pic.jpg'"],
     ["\\\"/profile-pic.jpg\\\"", "\\\"./profile-pic.jpg\\\""],
+
+    ["\"/icon.svg", "\"./icon.svg"],
+    ["'/icon.svg", "'./icon.svg"],
+    ["\\\"/icon.svg", "\\\"./icon.svg"],
+
+    ["\"/apple-icon.jpg", "\"./apple-icon.jpg"],
+    ["'/apple-icon.jpg", "'./apple-icon.jpg"],
+    ["\\\"/apple-icon.jpg", "\\\"./apple-icon.jpg"],
   ];
 
   let nextHtml = html;

@@ -6,6 +6,8 @@ type Theme = "light" | "dark";
 
 // Mirrors --bg in src/styles/tokens.css, so the mobile browser chrome
 // (theme-color) matches the applied theme rather than staying dark forever.
+// Also duplicated in layout.tsx's THEME_INIT_SCRIPT for a pre-hydration sync
+// — keep both in sync if these values change.
 const THEME_COLORS: Record<Theme, string> = {
   light: "#f6f3ee",
   dark: "#0a1112",

@@ -7,10 +7,22 @@ import "./globals.css";
 // Applies a previously-chosen theme to <html> before hydration so there's no
 // flash of the wrong theme; unset (no stored preference) intentionally does
 // nothing here and lets globals.css's prefers-color-scheme media query
-// handle it instead.
+// handle it instead. Also syncs the theme-color meta (mobile browser chrome)
+// synchronously for the same reason — ThemeToggle's effect runs too late to
+// avoid a flash of the wrong chrome color. Colors must match THEME_COLORS in
+// ThemeToggle.tsx.
 const THEME_INIT_SCRIPT = `try {
   var t = localStorage.getItem("theme");
-  if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+  if (t === "light" || t === "dark") {
+    document.documentElement.dataset.theme = t;
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (!m) {
+      m = document.createElement("meta");
+      m.name = "theme-color";
+      document.head.appendChild(m);
+    }
+    m.content = t === "light" ? "#f6f3ee" : "#0a1112";
+  }
 } catch (e) {}`;
 
 const siteUrl = "https://andrewlacroce.com";

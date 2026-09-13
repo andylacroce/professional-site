@@ -56,7 +56,7 @@ export default function Projects() {
                   className="project-title font-display accent-link inline-flex items-center gap-1.5 w-fit"
                 >
                   {p.name}
-                  <ExternalLinkIcon />
+                  <ExternalLinkIcon className="shrink-0" />
                 </a>
               ) : p.isSelf ? (
                 <span className="project-title font-display inline-flex items-center gap-1.5">

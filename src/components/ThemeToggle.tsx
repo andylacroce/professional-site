@@ -1,17 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { THEME_COLORS, type Theme } from "@/lib/theme";
 
-type Theme = "light" | "dark";
-
-// Mirrors --bg in src/styles/tokens.css, so the mobile browser chrome
-// (theme-color) matches the applied theme rather than staying dark forever.
-// Also duplicated in layout.tsx's THEME_INIT_SCRIPT for a pre-hydration sync
-// — keep both in sync if these values change.
-const THEME_COLORS: Record<Theme, string> = {
-  light: "#f6f3ee",
-  dark: "#0a1112",
-};
+// THEME_COLORS mirrors --bg in src/styles/tokens.css, so the mobile browser
+// chrome (theme-color) matches the applied theme rather than staying dark
+// forever. Shared with layout.tsx's pre-hydration THEME_INIT_SCRIPT via
+// src/lib/theme.ts, so the two can't drift out of sync.
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme | null>(null);

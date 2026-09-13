@@ -1,5 +1,6 @@
 import { readdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const outDir = path.join(process.cwd(), "out");
 const stylesheetHrefPattern = /<link rel="stylesheet" href="([^\"]+\.css)" data-precedence="next"\/>/g;
@@ -25,7 +26,7 @@ async function collectHtmlFiles(directory) {
   return files;
 }
 
-function rewriteFileProtocolPaths(html) {
+export function rewriteFileProtocolPaths(html) {
   // /_next/** is deliberately left untouched: Next's client runtime embeds
   // those same absolute paths inside the JS bundle itself (its chunk
   // manifest, and the stylesheet <link> React's hydration matches by exact
@@ -119,8 +120,12 @@ async function main() {
   console.log(`Rewrote static paths in ${changedCount} of ${htmlFiles.length} HTML file(s).`);
 }
 
-main().catch((error) => {
-  console.error("Failed to rewrite static export paths.");
-  console.error(error);
-  process.exit(1);
-});
+const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+
+if (isMain) {
+  main().catch((error) => {
+    console.error("Failed to rewrite static export paths.");
+    console.error(error);
+    process.exit(1);
+  });
+}

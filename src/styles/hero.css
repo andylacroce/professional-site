@@ -2,6 +2,40 @@
   border: 2px solid var(--border);
 }
 
+.hero-photo-trigger {
+  display: inline-flex;
+  vertical-align: top;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 9999px;
+}
+
+.hero-photo-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.hero-lightbox-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.hero-lightbox-close:hover {
+  color: var(--accent);
+}
+
+.hero-lightbox-image {
+  border: 2px solid var(--border);
+}
+
 .hero-name {
   font-size: clamp(2rem, 5vw, 2.75rem);
   font-weight: 600;

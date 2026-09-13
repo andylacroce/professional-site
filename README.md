@@ -39,12 +39,13 @@ Built from scratch with Next.js 16, Tailwind CSS v4, and TypeScript. No template
 ```text
 public/
 ├── logos/               # Company logos used in Experience
-└── profile-pic.jpg      # Hero image and favicon source
+└── profile-pic.jpg      # Hero image and social preview photo
 
 src/
 ├── app/
 │   ├── layout.tsx        # Metadata, global CSS
 │   ├── page.tsx          # Root page, composes all sections
+│   ├── icon.svg          # Favicon (bronze "A" monogram)
 │   └── globals.css       # Theme tokens, texture, motion, shared utility styles
 └── components/
     ├── Nav.tsx            # Sticky nav with active-section highlighting

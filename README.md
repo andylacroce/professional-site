@@ -14,7 +14,7 @@ Built from scratch with Next.js 16, Tailwind CSS v4, and TypeScript. No template
 - Coordinated font pairing for display and body copy
 - Sticky in-page navigation with active section highlighting and a Home anchor
 - Lightweight reveal animations with `prefers-reduced-motion` support
-- Profile image used for both the hero and favicon
+- Custom SVG favicon (bronze "A" monogram); profile photo used for the hero and social preview
 - Static export support with post-build path normalization for `file://` compatibility
 - Linting, unit/component tests, and E2E/responsive/visual-regression tests gate every build (see [Testing](#testing))
 
@@ -72,7 +72,7 @@ Open [http://localhost:3000](http://localhost:3000).
 ```bash
 npm run dev                       # Start local development server
 npm run build                     # Create production build and export a file-loadable out/ folder
-npm run start                     # Start Next.js production server
+npm run start                     # Serve the built static export in out/ locally (npx serve)
 npm run lint                      # ESLint, zero warnings allowed
 npm run lint:md                   # markdownlint-cli2 (same rules as the VS Code extension)
 npm run typecheck                 # tsc --noEmit
@@ -112,7 +112,7 @@ Vercel handles this automatically on push.
 The exported site is generated in `out/` and is intended to be directly loadable as static files.
 
 - Entry file: `out/index.html`
-- Static assets: `out/_next/`, `out/logos/`, `out/profile-pic.jpg`
+- Static assets: `out/_next/`, `out/logos/`, `out/icon.svg`, `out/profile-pic.jpg`
 
 To preview locally with a static server:
 

@@ -4,6 +4,13 @@ import { useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
 
+// Mirrors --bg in src/styles/tokens.css, so the mobile browser chrome
+// (theme-color) matches the applied theme rather than staying dark forever.
+const THEME_COLORS: Record<Theme, string> = {
+  light: "#f6f3ee",
+  dark: "#0a1112",
+};
+
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme | null>(null);
 
@@ -27,6 +34,14 @@ export default function ThemeToggle() {
   useEffect(() => {
     if (theme) {
       document.documentElement.dataset.theme = theme;
+
+      let meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.name = "theme-color";
+        document.head.appendChild(meta);
+      }
+      meta.content = THEME_COLORS[theme];
     }
   }, [theme]);
 

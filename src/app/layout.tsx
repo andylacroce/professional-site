@@ -70,11 +70,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  icons: {
-    icon: "profile-pic.jpg",
-    apple: "profile-pic.jpg",
-    shortcut: "profile-pic.jpg",
-  },
   openGraph: {
     title: siteTitle,
     description: siteDescription,

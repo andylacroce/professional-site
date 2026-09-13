@@ -32,6 +32,7 @@ function mockMatchMedia(initialMatches: boolean) {
 beforeEach(() => {
   window.localStorage.clear();
   document.documentElement.removeAttribute("data-theme");
+  document.querySelector('meta[name="theme-color"]')?.remove();
 });
 
 afterEach(() => {
@@ -71,6 +72,34 @@ describe("ThemeToggle", () => {
     expect(screen.getByRole("button", { name: "Switch to light mode" })).toHaveAttribute("aria-pressed", "false");
     expect(document.documentElement.dataset.theme).toBe("dark");
     expect(window.localStorage.getItem("theme")).toBe("dark");
+  });
+
+  it("sets the theme-color meta to match the applied theme", async () => {
+    mockMatchMedia(true); // system prefers light
+
+    render(<ThemeToggle />);
+    await screen.findByRole("button", { name: "Switch to dark mode" });
+
+    const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    expect(meta).not.toBeNull();
+    expect(meta?.content).toBe("#f6f3ee");
+  });
+
+  it("updates an existing theme-color meta when the theme changes", async () => {
+    const user = userEvent.setup();
+    mockMatchMedia(true); // system prefers light -> initial theme is light
+    const meta = document.createElement("meta");
+    meta.name = "theme-color";
+    meta.content = "#0a1112";
+    document.head.appendChild(meta);
+
+    render(<ThemeToggle />);
+    const button = await screen.findByRole("button", { name: "Switch to dark mode" });
+    expect(meta.content).toBe("#f6f3ee");
+
+    await user.click(button);
+
+    expect(meta.content).toBe("#0a1112");
   });
 
   it("re-syncs from the system when it changes and no preference is stored", async () => {

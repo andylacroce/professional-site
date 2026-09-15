@@ -22,20 +22,6 @@ const projects = [
       "Built from scratch to practice modern frontend development and own the full deployment pipeline. No template, no CMS. Next.js 16, Tailwind CSS v4, TypeScript, deployed to Vercel with a custom domain via Cloudflare.",
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vercel"],
   },
-  {
-    name: "Nukefire MUD Scripts",
-    siteUrl: null,
-    githubUrl: "https://github.com/andylacroce/nukefire",
-    githubSlug: "nukefire",
-    description: (
-      <>
-        Built for personal use to automate and enhance playing a text-based multiplayer RPG (
-        <a href="https://nukefire.org" target="_blank" rel="noopener noreferrer" className="accent-link">nukefire.org</a>
-        ) on Windows. TinTin++ scripts handle character session management, GMCP-driven automapping, class-specific combat hooks, and a multi-window Windows Terminal launcher for coordinating multi-character group play.
-      </>
-    ),
-    tags: ["TinTin++", "PowerShell", "Windows Terminal", "MUD"],
-  },
 ];
 
 export default function Projects() {

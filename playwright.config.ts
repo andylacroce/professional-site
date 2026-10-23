@@ -56,7 +56,7 @@ export default defineConfig({
   // 30s test timeout. A moderate fixed cap keeps that queue short instead
   // of papering over it with a longer timeout or extra retries — both of
   // which only made a bad run slower, not more likely to pass.
-  workers: process.env.CI ? 4 : 6,
+  workers: process.env.CI ? 2 : 6,
   // 30s (Playwright's default) is far more than this site legitimately
   // needs; 10s is generous for even a cold `next dev` compile once the
   // worker cap above stops those from queuing behind each other.

@@ -9,6 +9,12 @@ on:
 permissions:
   contents: read
 
+# A newer push to the same PR supersedes an in-flight run; main runs are
+# never cancelled so every merge keeps a complete result.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   ci:
     name: Lint, test, and build

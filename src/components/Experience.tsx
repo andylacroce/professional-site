@@ -62,17 +62,51 @@ const experienceGroups = [
     ],
   },
   {
-    company: "Radial (formerly GSI Commerce)",
+    company: "Radial (formerly eBay Enterprise)",
     logo: "logos/radial.png",
     homepage: "https://www.radial.com/",
     logoFit: "cover" as const,
     positions: [
       {
-        title: "Lead Technical Project Manager",
-        dates: "Jan 2011 – Jun 2016",
+        title: "Senior Technical Project Manager",
+        dates: "Jun 2014 – Jun 2016",
         bullets: [
-          "Led implementation and ongoing management of large-scale e-commerce platforms for Toys R Us (primary account), Sports Authority, and Dick's Sporting Goods, with sites handling millions of users with strict uptime SLAs during peak retail seasons.",
-          "Managed cross-functional teams across engineering, operations, and business to deliver complex platform implementations and integrations on schedule and within scope.",
+          "Returned as the company was divested from eBay and established as an independent business, managing corporate IT acquisition and conversion projects within SAP through the separation.",
+          "Held overall project management responsibility for moving roughly 500 to 1,000 employees to ADP payroll, coordinating Payroll, HR, Legal, and outside providers across requirements, communications, and training.",
+        ],
+      },
+    ],
+  },
+  {
+    company: "Perficient",
+    logo: "logos/perficient.svg",
+    homepage: "https://www.perficient.com/",
+    positions: [
+      {
+        title: "Project Manager, Microsoft National Business Unit",
+        dates: "Aug 2013 – May 2014",
+        bullets: [
+          "Managed SharePoint and Office 365 (now Microsoft 365) implementation projects for client organizations, delivered as a series of short, sequential engagements.",
+          "Delivered an internal SharePoint knowledge portal for JMS in Chicago, the largest engagement at roughly six months, from requirements gathering through implementation and training, with regular on-site work.",
+          "Supported testing and acceptance of the portal, including building the prototype of the Selenium test framework used on the site.",
+          "Assessed risk, estimated effort, drafted statements of work, tracked project budgets, and managed client expectations across geographically dispersed delivery teams.",
+        ],
+      },
+    ],
+  },
+  {
+    company: "GSI Commerce (acquired by eBay)",
+    logo: "logos/radial.png",
+    homepage: "https://www.radial.com/",
+    logoFit: "cover" as const,
+    positions: [
+      {
+        title: "Senior Technical Project Manager",
+        dates: "Jan 2011 – Jul 2013",
+        bullets: [
+          "Joined as a Project Manager and was promoted; one of the senior project managers on the Toys R Us account, handling its small-project pipeline and several of its most business-critical, technically complex projects, along with work for Sports Authority and Dick's Sporting Goods.",
+          "Delivered the Toys R Us omnichannel layaway program, rebuilding the payments flow to meet its requirements, and a complete rebuild of the Babies R Us baby registry.",
+          "Managed the full delivery lifecycle across engineering, operations, and business teams on platforms serving millions of users with strict peak-season uptime requirements.",
         ],
       },
     ],
@@ -85,7 +119,7 @@ const experienceGroups = [
       {
         title: "Technical Project Manager",
         dates: "Jan 2006 – Jan 2011",
-        description: "Technical Project Manager supporting e-learning SaaS platform delivery for Fortune 500 clients.",
+        description: "Led e-learning SaaS platform delivery for Fortune 500 clients.",
         bullets: [],
       },
     ],
@@ -98,7 +132,7 @@ const experienceGroups = [
       {
         title: "Business Systems Engineer",
         dates: "Sep 2004 – Sep 2005",
-        description: "Business Systems Engineer supporting internal tooling and workflow automation in a global insurance environment.",
+        description: "Built and configured client-facing HR benefits enrollment systems for corporate customers, including open enrollment, qualifying life event processing, and COBRA enrollment workflows.",
         bullets: [],
       },
     ],

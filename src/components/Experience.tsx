@@ -96,9 +96,8 @@ const experienceGroups = [
   },
   {
     company: "GSI Commerce (acquired by eBay)",
-    logo: "logos/radial.png",
+    logo: "logos/gsi.png",
     homepage: "https://www.radial.com/",
-    logoFit: "cover" as const,
     positions: [
       {
         title: "Senior Technical Project Manager",

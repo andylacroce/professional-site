@@ -89,11 +89,16 @@ export default defineConfig({
     // avoids flaking on noise while still catching real layout regressions.
     toHaveScreenshot: { maxDiffPixelRatio: 0.02 },
   },
+  // Remote CI runs only the Chromium functional specs: Firefox, WebKit and the
+  // visual baselines are local-only (`npm run ci`), where they cost seconds
+  // and flake far less than on a shared runner.
   projects: [
     // Full responsive/functional matrix against the static export — this is
     // what's actually deployed, and it's a stateless file server, so it's
     // fast and has never once flaked in testing this config.
-    functionalProject("mobile", "static", "iPhone 14"),
+    // Remote CI is Chromium-only (see `projects` filter below), so mobile
+    // there uses Chromium emulation instead of WebKit.
+    functionalProject("mobile", "static", process.env.CI ? "Pixel 7" : "iPhone 14"),
     functionalProject("tablet", "static", "Desktop Chrome"),
     functionalProject("desktop", "static", "Desktop Chrome"),
     // A single smoke project against `next dev`, not one per viewport: it's
@@ -123,7 +128,7 @@ export default defineConfig({
     visualProject("mobile", "static"),
     visualProject("tablet", "static"),
     visualProject("desktop", "static"),
-  ],
+  ].filter((p) => !process.env.CI || !/firefox|^visual-/.test(p.name)),
   webServer: [
     {
       command: "npm run dev",

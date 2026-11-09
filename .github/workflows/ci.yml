@@ -46,12 +46,7 @@ jobs:
 
       - name: Install Playwright browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install chromium firefox webkit
-
-      # WebKit needs system libs (e.g. libevent) that ubuntu-latest lacks, and
-      # they live outside the browser cache, so install them on every run.
-      - name: Install WebKit system dependencies
-        run: npx playwright install-deps webkit
+        run: npx playwright install --with-deps chromium
 
       # Runs lint -> typecheck -> unit tests (90% coverage gate) -> build ->
       # E2E tests in order, stopping at the first failure, and always prints

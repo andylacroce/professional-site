@@ -18,11 +18,7 @@ concurrency:
 jobs:
   ci:
     name: Lint, test, and build
-    # Playwright's visual-regression baselines are namespaced by OS, and were
-    # generated on Windows (no Docker available to produce Linux-matching
-    # ones instead) — running CI on windows-latest keeps those baselines
-    # meaningful instead of failing on a platform mismatch on every run.
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -45,12 +41,23 @@ jobs:
         id: playwright-cache
         uses: actions/cache@v6
         with:
-          path: ~\AppData\Local\ms-playwright
+          path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
 
       - name: Install Playwright browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install chromium firefox webkit
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Install Playwright system dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium firefox webkit
+
+      # TEMP: generate Linux baselines once, then remove this step.
+      - run: npm run build && npm run test:e2e:update-snapshots
+      - uses: actions/upload-artifact@v7
+        with:
+          name: linux-snapshots
+          path: e2e/**/*-snapshots/*-linux.png
 
       # Runs lint -> typecheck -> unit tests (90% coverage gate) -> build ->
       # E2E tests in order, stopping at the first failure, and always prints

@@ -57,10 +57,10 @@ export default defineConfig({
   // of papering over it with a longer timeout or extra retries — both of
   // which only made a bad run slower, not more likely to pass.
   workers: process.env.CI ? 2 : 6,
-  // 30s (Playwright's default) is far more than this site legitimately
-  // needs; 10s is generous for even a cold `next dev` compile once the
-  // worker cap above stops those from queuing behind each other.
-  timeout: 10_000,
+  // Well under Playwright's 30s default, but not so tight that a busy CI
+  // runner trips the multi-click nav tests (smooth-scroll settling across
+  // five links flaked on Firefox and WebKit at 10s while passing locally).
+  timeout: 20_000,
   // "dot" stays quiet across 13 projects everywhere (local `npm run ci`
   // included, not just real CI) and still prints failures in full; "html"
   // is always written as an artifact but never auto-opened. GITHUB_ACTIONS

@@ -1,15 +1,23 @@
-import { spawnSync } from "node:child_process";
+import { spawn } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 
-const STEPS = [
-  { name: "Lint", npmScript: "lint" },
-  { name: "Markdown lint", npmScript: "lint:md" },
-  { name: "Typecheck", npmScript: "typecheck" },
-  { name: "Unit tests", npmScript: "test:coverage" },
-  { name: "Build", npmScript: "build" },
-  { name: "E2E tests", npmScript: "test:e2e" },
+// Steps within a phase run concurrently; a phase only starts if the previous
+// one fully passed. Typecheck waits for Build because tsc reads the
+// .next/types that `next build` generates, and E2E needs the built out/.
+const PHASES = [
+  [
+    { name: "Lint", npmScript: "lint" },
+    { name: "Markdown lint", npmScript: "lint:md" },
+    { name: "Unit tests", npmScript: "test:coverage" },
+    { name: "Build", npmScript: "build" },
+  ],
+  [
+    { name: "Typecheck", npmScript: "typecheck" },
+    { name: "E2E tests", npmScript: "test:e2e" },
+  ],
 ];
+const STEPS = PHASES.flat();
 
 const COVERAGE_THRESHOLD = 90;
 
@@ -40,26 +48,39 @@ function pad(s, width) {
   return s + " ".repeat(Math.max(0, width - s.length));
 }
 
+function runStep(step) {
+  return new Promise((resolve) => {
+    const start = Date.now();
+    const proc = spawn("npm", ["run", step.npmScript], { shell: true });
+    let output = "";
+    proc.stdout.on("data", (d) => (output += d));
+    proc.stderr.on("data", (d) => (output += d));
+    proc.on("close", (code) => {
+      console.log(`${bold(cyan(`
+▶ ${step.name}`))}
+${output}`);
+      resolve({ ...step, status: code === 0 ? "passed" : "failed", durationMs: Date.now() - start });
+    });
+  });
+}
+
 async function main() {
+  const wallStart = Date.now();
   const results = [];
   let stoppedAt = null;
 
-  for (const step of STEPS) {
+  for (const phase of PHASES) {
     if (stoppedAt) {
-      results.push({ ...step, status: "skipped" });
+      results.push(...phase.map((step) => ({ ...step, status: "skipped" })));
       continue;
     }
-
-    console.log(bold(cyan(`\n▶ ${step.name}`)));
-    const start = Date.now();
-    const proc = spawnSync("npm", ["run", step.npmScript], { stdio: "inherit", shell: true });
-    const durationMs = Date.now() - start;
-    const status = proc.status === 0 ? "passed" : "failed";
-    results.push({ ...step, status, durationMs });
-    if (status === "failed") stoppedAt = step.name;
+    const done = await Promise.all(phase.map(runStep));
+    results.push(...done);
+    const failed = done.filter((r) => r.status === "failed");
+    if (failed.length) stoppedAt = failed.map((r) => r.name).join(", ");
   }
 
-  const totalDurationMs = results.reduce((sum, r) => sum + (r.durationMs ?? 0), 0);
+  const totalDurationMs = Date.now() - wallStart;
   const overallPassed = results.every((r) => r.status === "passed");
   const nameWidth = Math.max(...STEPS.map((s) => s.name.length)) + 2;
 

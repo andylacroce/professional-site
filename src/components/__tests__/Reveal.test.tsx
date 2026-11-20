@@ -71,6 +71,7 @@ describe("Reveal", () => {
     );
 
     const wrapper = screen.getByText("Delayed content").parentElement;
-    expect(wrapper).toHaveStyle({ transitionDelay: "250ms" });
+    // jsdom 31 normalizes the computed value to "0.25s", so assert the inline style the component sets.
+    expect(wrapper).toHaveProperty("style.transitionDelay", "250ms");
   });
 });

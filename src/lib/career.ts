@@ -9,7 +9,8 @@ export type Position = {
   title: string;
   start: string; // "YYYY-MM"
   end: string | null; // "YYYY-MM", or null for a current role
-  location?: string;
+  location?: string; // as shown on LinkedIn (company office city for remote roles)
+  locationType?: "Remote"; // resumes show "Remote" for these
   description?: string;
   bullets: string[];
 };
@@ -154,7 +155,11 @@ export function renderFacts(career: Career): string {
     .sort((a, b) => monthIndex(b.position.start) - monthIndex(a.position.start))
     .map(
       ({ company, position }) =>
-        `| ${formatRange(position)} | ${position.title} | ${company.linkedinName} | ${position.location ?? "(not set)"} |`,
+        `| ${formatRange(position)} | ${position.title} | ${company.linkedinName} | ${
+          position.locationType
+            ? `${position.locationType} (LinkedIn city: ${position.location ?? "not set"})`
+            : (position.location ?? "(not set)")
+        } |`,
     );
   return [
     "# Canonical career facts",
@@ -205,9 +210,8 @@ export function renderLinkedIn(career: Career): string {
         "",
         `- Title: ${position.title}`,
         `- Company: ${company.linkedinName}`,
-        position.location === "Remote"
-          ? "- Location: leave the city blank and set Location type to Remote"
-          : `- Location: ${position.location ?? "(not set)"}`,
+        `- Location: ${position.location ?? "(not set)"}`,
+        ...(position.locationType ? [`- Location type: ${position.locationType}`] : []),
         `- Start: ${formatMonth(position.start, true)}`,
         `- End: ${position.end ? formatMonth(position.end, true) : "Present"}`,
         `- Description length: ${description.length} of ${LINKEDIN_DESCRIPTION_LIMIT} characters`,

@@ -95,11 +95,16 @@ describe("formatting", () => {
 
   it("tells Andy how to enter remote roles and which certifications to add", () => {
     const doc = renderLinkedIn(career);
-    expect(doc).toContain("- Location: leave the city blank and set Location type to Remote");
+    expect(doc).toContain("- Location: Seattle, Washington\n- Location type: Remote");
+    expect(renderFacts(career)).toContain("Remote (LinkedIn city: Seattle, Washington)");
+    const noCity = clone();
+    noCity.companies[0].positions[0].location = undefined;
+    expect(renderFacts(noCity)).toContain("Remote (LinkedIn city: not set)");
     expect(doc).toContain(career.profile.headline);
     expect(doc).toContain("Minor in Computer Science");
 
     const pending = clone();
+    expect(doc).toContain("All certifications are already on LinkedIn.");
     pending.certifications = [{ name: "Test Cert", issuer: "Acme", issued: "2024-02", onLinkedIn: false }];
     expect(renderLinkedIn(pending)).toContain("- Test Cert, issued by Acme, February 2024");
     pending.certifications = [{ name: "Test Cert", issuer: "Acme", onLinkedIn: false }];
@@ -117,8 +122,10 @@ describe("formatting", () => {
   it("marks missing locations and current roles in generated docs", () => {
     const withCurrent = clone();
     withCurrent.companies[0].positions[0].end = null;
-    withCurrent.companies[0].positions[0].location = undefined;
     expect(renderLinkedIn(withCurrent)).toContain("- End: Present");
-    expect(renderFacts(withCurrent)).toContain("(not set)");
+
+    const noLocation = clone();
+    noLocation.companies.find((c) => c.id === "lrn")!.positions[0].location = undefined;
+    expect(renderFacts(noLocation)).toContain("| LRN | (not set) |");
   });
 });

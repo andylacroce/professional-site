@@ -11,12 +11,13 @@
           "title": "Senior Lead, Program Management",
           "start": "2024-04",
           "end": "2025-06",
-          "location": "Remote",
+          "location": "Seattle, Washington",
           "bullets": [
             "Formalized PI planning across 12 teams by standardizing cross-team estimation and building shared capacity visibility; used Jira as the execution backbone and a purpose-built Google Sheets workbook as a flexible planning layer to prototype the process before migrating to permanent tooling.",
             "Established cut-line communication protocols and trade-off frameworks that gave executives meaningful visibility into capacity and dependencies, enabling informed prioritization and reducing unstructured top-down pressure on teams.",
             "Restructured the planning timeline by shifting preparation further left, enabling teams to enter each quarter with committed, well-defined work and improving delivery cadence predictability across the program."
-          ]
+          ],
+          "locationType": "Remote"
         }
       ]
     },
@@ -33,12 +34,13 @@
           "title": "Software Development Manager",
           "start": "2022-01",
           "end": "2023-08",
-          "location": "Remote",
+          "location": "Seattle, Washington",
           "bullets": [
             "Directly managed two teams (Order Management and Item Master DevOps, ~6 engineers each) within a ~100-person engineering org; drove a replatforming effort from Ruby/Scala to Kotlin, reducing tech debt and improving platform scalability.",
             "Reduced tech debt-driven support burden from 80% to 20% of team capacity, enabling sustained focus on feature development.",
             "Inherited a team in chronic firefighting mode; stabilized operations within 3–6 months by providing air cover, enforcing severity-based SLAs, and transferring prioritization ownership back to the team."
-          ]
+          ],
+          "locationType": "Remote"
         }
       ]
     },
@@ -261,7 +263,7 @@
       "name": "Atlassian Agile Project Management Professional Certificate",
       "issuer": "Atlassian",
       "issued": "2024-02",
-      "onLinkedIn": false
+      "onLinkedIn": true
     },
     {
       "name": "GPT-4 Foundations: Building AI-Powered Apps",

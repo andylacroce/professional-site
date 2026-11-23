@@ -29,7 +29,8 @@ Pin these as Top Skills: Technical Program Management; Engineering Management; A
 
 - Title: Senior Lead, Program Management
 - Company: Kyndryl
-- Location: leave the city blank and set Location type to Remote
+- Location: Seattle, Washington
+- Location type: Remote
 - Start: April 2024
 - End: June 2025
 - Description length: 738 of 2000 characters
@@ -44,7 +45,8 @@ Pin these as Top Skills: Technical Program Management; Engineering Management; A
 
 - Title: Software Development Manager
 - Company: Flexe
-- Location: leave the city blank and set Location type to Remote
+- Location: Seattle, Washington
+- Location type: Remote
 - Start: January 2022
 - End: August 2023
 - Description length: 567 of 2000 characters
@@ -197,6 +199,4 @@ LLM feasibility evaluation
 
 ## Licenses and certifications
 
-Add these (set onLinkedIn to true in career.json once added):
-
-- Atlassian Agile Project Management Professional Certificate, issued by Atlassian, February 2024
+All certifications are already on LinkedIn.

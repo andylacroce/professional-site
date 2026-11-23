@@ -93,6 +93,27 @@ describe("formatting", () => {
     ).toBe("d\n\n• a\n• b");
   });
 
+  it("tells Andy how to enter remote roles and which certifications to add", () => {
+    const doc = renderLinkedIn(career);
+    expect(doc).toContain("- Location: leave the city blank and set Location type to Remote");
+    expect(doc).toContain(career.profile.headline);
+    expect(doc).toContain("Minor in Computer Science");
+
+    const pending = clone();
+    pending.certifications = [{ name: "Test Cert", issuer: "Acme", issued: "2024-02", onLinkedIn: false }];
+    expect(renderLinkedIn(pending)).toContain("- Test Cert, issued by Acme, February 2024");
+    pending.certifications = [{ name: "Test Cert", issuer: "Acme", onLinkedIn: false }];
+    expect(renderLinkedIn(pending)).toContain("- Test Cert, issued by Acme\n");
+
+    const done = clone();
+    done.certifications.forEach((c) => { c.onLinkedIn = true; });
+    expect(renderLinkedIn(done)).toContain("All certifications are already on LinkedIn.");
+
+    const noMinor = clone();
+    noMinor.education[0].minor = undefined;
+    expect(renderLinkedIn(noMinor)).not.toContain("Minor in");
+  });
+
   it("marks missing locations and current roles in generated docs", () => {
     const withCurrent = clone();
     withCurrent.companies[0].positions[0].end = null;

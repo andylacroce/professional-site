@@ -33,9 +33,35 @@ export type ResumeRules = {
   allowedMergedRanges: { range: string; title: string; note: string }[];
 };
 
+export type Profile = {
+  headline: string;
+  summary: string[]; // shared: LinkedIn Summary and the first paragraphs of the site About
+  siteOnlyAbout: string[]; // extra About paragraphs that stay off LinkedIn
+  topSkills: string[]; // the three skills to pin on LinkedIn
+};
+
+export type Education = {
+  school: string;
+  degree: string;
+  field: string;
+  minor?: string;
+  start: string;
+  end: string;
+};
+
+export type Certification = {
+  name: string;
+  issuer: string;
+  issued?: string; // "YYYY-MM"
+  onLinkedIn: boolean; // false means it still has to be added to LinkedIn
+};
+
 export type Career = {
   companies: Company[];
   skills: SkillGroup[];
+  profile: Profile;
+  education: Education[];
+  certifications: Certification[];
   resumeRules: ResumeRules;
 };
 
@@ -152,6 +178,22 @@ export function renderLinkedIn(career: Career): string {
     "",
     "Where one company has two roles, add the second as a new position at the same company so LinkedIn groups them.",
     "",
+    "## Profile",
+    "",
+    "Headline:",
+    "",
+    "```text",
+    career.profile.headline,
+    "```",
+    "",
+    "Summary (About):",
+    "",
+    "```text",
+    career.profile.summary.join("\n\n"),
+    "```",
+    "",
+    `Pin these as Top Skills: ${career.profile.topSkills.join("; ")}.`,
+    "",
     "## Experience",
     "",
   ];
@@ -163,7 +205,9 @@ export function renderLinkedIn(career: Career): string {
         "",
         `- Title: ${position.title}`,
         `- Company: ${company.linkedinName}`,
-        `- Location: ${position.location ?? "(not set)"}`,
+        position.location === "Remote"
+          ? "- Location: leave the city blank and set Location type to Remote"
+          : `- Location: ${position.location ?? "(not set)"}`,
         `- Start: ${formatMonth(position.start, true)}`,
         `- End: ${position.end ? formatMonth(position.end, true) : "Present"}`,
         `- Description length: ${description.length} of ${LINKEDIN_DESCRIPTION_LIMIT} characters`,
@@ -177,6 +221,26 @@ export function renderLinkedIn(career: Career): string {
   }
   out.push("## Skills", "", "Add these as skills; LinkedIn allows up to 50.", "", "```text");
   for (const group of career.skills) out.push(...group.items);
-  out.push("```", "");
+  out.push("```", "", "## Education", "");
+  for (const e of career.education) {
+    out.push(
+      `- School: ${e.school}`,
+      `- Degree: ${e.degree}`,
+      `- Field of study: ${e.field}`,
+      `- Dates: ${e.start} – ${e.end}`,
+    );
+    if (e.minor) out.push(`- Description: Minor in ${e.minor}`);
+  }
+  out.push("", "## Licenses and certifications", "");
+  const missing = career.certifications.filter((c) => !c.onLinkedIn);
+  if (missing.length === 0) {
+    out.push("All certifications are already on LinkedIn.");
+  } else {
+    out.push("Add these (set onLinkedIn to true in career.json once added):", "");
+    for (const c of missing) {
+      out.push(`- ${c.name}, issued by ${c.issuer}${c.issued ? `, ${formatMonth(c.issued, true)}` : ""}`);
+    }
+  }
+  out.push("");
   return out.join("\n");
 }

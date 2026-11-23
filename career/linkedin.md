@@ -5,13 +5,31 @@ Edit the data file, run the sync, then copy from here into LinkedIn.
 
 Where one company has two roles, add the second as a new position at the same company so LinkedIn groups them.
 
+## Profile
+
+Headline:
+
+```text
+Technical Program Manager | Software Engineering Manager | Cloud Migration, Agile Delivery, Distributed Teams
+```
+
+Summary (About):
+
+```text
+I'm a software engineering and delivery leader with 20+ years of experience building high-performing teams, driving Agile transformation, and delivering complex technical programs at scale. I operate at the intersection of engineering execution and business outcomes, whether that means stabilizing a struggling team, standing up a planning framework across a 100-person org, or leading a large-scale cloud migration while keeping everything else moving.
+
+My background spans both Engineering Manager and Technical Program Manager roles, which means I bring technical credibility, delivery discipline, and the ability to align engineers, product, and leadership around what matters. I lead through clarity, not authority, and I'm most effective in environments where the work is genuinely hard and the bar is high.
+```
+
+Pin these as Top Skills: Technical Program Management; Engineering Management; Agile Project Management.
+
 ## Experience
 
-### Sr. Lead, Program Management at Kyndryl
+### Senior Lead, Program Management at Kyndryl
 
-- Title: Sr. Lead, Program Management
+- Title: Senior Lead, Program Management
 - Company: Kyndryl
-- Location: Remote
+- Location: leave the city blank and set Location type to Remote
 - Start: April 2024
 - End: June 2025
 - Description length: 738 of 2000 characters
@@ -26,7 +44,7 @@ Where one company has two roles, add the second as a new position at the same co
 
 - Title: Software Development Manager
 - Company: Flexe
-- Location: Remote
+- Location: leave the city blank and set Location type to Remote
 - Start: January 2022
 - End: August 2023
 - Description length: 567 of 2000 characters
@@ -168,3 +186,17 @@ Prompt engineering & output quality
 AI adoption strategy
 LLM feasibility evaluation
 ```
+
+## Education
+
+- School: Lehigh University
+- Degree: Bachelor's Degree
+- Field of study: Science, Technology and Society
+- Dates: 2000 – 2004
+- Description: Minor in Computer Science
+
+## Licenses and certifications
+
+Add these (set onLinkedIn to true in career.json once added):
+
+- Atlassian Agile Project Management Professional Certificate, issued by Atlassian, February 2024

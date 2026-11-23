@@ -5,7 +5,7 @@ Titles, employers, dates, and locations here override any other document.
 
 | Dates | Title | Company | Location |
 | --- | --- | --- | --- |
-| Apr 2024 – Jun 2025 | Sr. Lead, Program Management | Kyndryl | Remote |
+| Apr 2024 – Jun 2025 | Senior Lead, Program Management | Kyndryl | Remote |
 | Jan 2022 – Aug 2023 | Software Development Manager | Flexe | Remote |
 | Dec 2019 – Nov 2021 | Software Development Manager | Comcast | Philadelphia, PA |
 | Jul 2016 – Nov 2019 | Sr. Technical Project Manager | Comcast | Philadelphia, PA |

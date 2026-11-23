@@ -8,7 +8,7 @@
       "homepage": "https://www.kyndryl.com/",
       "positions": [
         {
-          "title": "Sr. Lead, Program Management",
+          "title": "Senior Lead, Program Management",
           "start": "2024-04",
           "end": "2025-06",
           "location": "Remote",
@@ -229,12 +229,64 @@
     "forbiddenPhrases": [
       "one level below director"
     ],
-    "allowedMergedRanges": [
-      {
-        "range": "Jan 2011 – Jun 2016",
-        "title": "Senior Technical Project Manager",
-        "note": "GSI Commerce/Radial shown as one continuous role with Perficient omitted. Dates stretch over Aug 2013 – May 2014, which LinkedIn and the site show as Perficient. Remove this entry to make split dates the only accepted form."
-      }
+    "allowedMergedRanges": []
+  },
+  "profile": {
+    "headline": "Technical Program Manager | Software Engineering Manager | Cloud Migration, Agile Delivery, Distributed Teams",
+    "summary": [
+      "I'm a software engineering and delivery leader with 20+ years of experience building high-performing teams, driving Agile transformation, and delivering complex technical programs at scale. I operate at the intersection of engineering execution and business outcomes, whether that means stabilizing a struggling team, standing up a planning framework across a 100-person org, or leading a large-scale cloud migration while keeping everything else moving.",
+      "My background spans both Engineering Manager and Technical Program Manager roles, which means I bring technical credibility, delivery discipline, and the ability to align engineers, product, and leadership around what matters. I lead through clarity, not authority, and I'm most effective in environments where the work is genuinely hard and the bar is high."
+    ],
+    "siteOnlyAbout": [
+      "After a stretch of progressively demanding roles, I took an intentional break: I built personal software projects in modern stacks, developed hands-on fluency with AI tools including ChatGPT, GitHub Copilot, and Claude, made music a serious pursuit, and spent meaningful time with family."
+    ],
+    "topSkills": [
+      "Technical Program Management",
+      "Engineering Management",
+      "Agile Project Management"
     ]
-  }
+  },
+  "education": [
+    {
+      "school": "Lehigh University",
+      "degree": "Bachelor's Degree",
+      "field": "Science, Technology and Society",
+      "minor": "Computer Science",
+      "start": "2000",
+      "end": "2004"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Atlassian Agile Project Management Professional Certificate",
+      "issuer": "Atlassian",
+      "issued": "2024-02",
+      "onLinkedIn": false
+    },
+    {
+      "name": "GPT-4 Foundations: Building AI-Powered Apps",
+      "issuer": "LinkedIn Learning",
+      "onLinkedIn": true
+    },
+    {
+      "name": "Hands-On AI: Build a Generative Language Model from Scratch",
+      "issuer": "LinkedIn Learning",
+      "onLinkedIn": true
+    },
+    {
+      "name": "Enterprise Agile: Growing Scrum",
+      "issuer": "LinkedIn Learning",
+      "onLinkedIn": true
+    },
+    {
+      "name": "Learning Kubernetes",
+      "issuer": "LinkedIn Learning",
+      "onLinkedIn": true
+    },
+    {
+      "name": "Agile at Work: Building Your Agile Team",
+      "issuer": "LinkedIn Learning",
+      "onLinkedIn": true
+    }
+  ]
 }

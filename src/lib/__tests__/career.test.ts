@@ -9,7 +9,6 @@ import {
   formatRange,
   linkedinDescription,
   monthIndex,
-  renderFacts,
   renderLinkedIn,
   validateCareer,
   type Career,
@@ -26,7 +25,6 @@ describe("career data", () => {
 
   it("has generated career/ files that match the data (run `npm run career:sync`)", () => {
     expect(read("career/linkedin.md")).toBe(renderLinkedIn(career));
-    expect(read("career/facts.md")).toBe(renderFacts(career));
   });
 
   it("keeps every LinkedIn description within the character limit", () => {
@@ -95,16 +93,15 @@ describe("formatting", () => {
 
   it("tells Andy how to enter remote roles and which certifications to add", () => {
     const doc = renderLinkedIn(career);
-    expect(doc).toContain("- Location: Seattle, Washington\n- Location type: Remote");
-    expect(renderFacts(career)).toContain("Remote (LinkedIn city: Seattle, Washington)");
+    expect(doc).toContain("Location: Seattle, Washington | Location type: Remote");
     const noCity = clone();
     noCity.companies[0].positions[0].location = undefined;
-    expect(renderFacts(noCity)).toContain("Remote (LinkedIn city: not set)");
+    expect(renderLinkedIn(noCity)).toContain("Location: (not set) | Location type: Remote");
     expect(doc).toContain(career.profile.headline);
     expect(doc).toContain("Minor in Computer Science");
 
     const pending = clone();
-    expect(doc).toContain("All certifications are already on LinkedIn.");
+    expect(doc).toContain("No action. All certifications are already on LinkedIn.");
     pending.certifications = [{ name: "Test Cert", issuer: "Acme", issued: "2024-02", onLinkedIn: false }];
     expect(renderLinkedIn(pending)).toContain("- Test Cert, issued by Acme, February 2024");
     pending.certifications = [{ name: "Test Cert", issuer: "Acme", onLinkedIn: false }];
@@ -112,7 +109,7 @@ describe("formatting", () => {
 
     const done = clone();
     done.certifications.forEach((c) => { c.onLinkedIn = true; });
-    expect(renderLinkedIn(done)).toContain("All certifications are already on LinkedIn.");
+    expect(renderLinkedIn(done)).toContain("No action. All certifications are already on LinkedIn.");
 
     const noMinor = clone();
     noMinor.education[0].minor = undefined;
@@ -122,10 +119,10 @@ describe("formatting", () => {
   it("marks missing locations and current roles in generated docs", () => {
     const withCurrent = clone();
     withCurrent.companies[0].positions[0].end = null;
-    expect(renderLinkedIn(withCurrent)).toContain("- End: Present");
+    expect(renderLinkedIn(withCurrent)).toContain("to Present");
 
     const noLocation = clone();
     noLocation.companies.find((c) => c.id === "lrn")!.positions[0].location = undefined;
-    expect(renderFacts(noLocation)).toContain("| LRN | (not set) |");
+    expect(renderLinkedIn(noLocation)).toContain("Location: (not set)\n");
   });
 });

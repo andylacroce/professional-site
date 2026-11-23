@@ -230,8 +230,7 @@
     ],
     "forbiddenPhrases": [
       "one level below director"
-    ],
-    "allowedMergedRanges": []
+    ]
   },
   "profile": {
     "headline": "Technical Program Manager | Software Engineering Manager | Cloud Migration, Agile Delivery, Distributed Teams",

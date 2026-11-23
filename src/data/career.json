@@ -1,0 +1,294 @@
+{
+  "companies": [
+    {
+      "id": "kyndryl",
+      "name": "Kyndryl (formerly Skytap)",
+      "linkedinName": "Kyndryl",
+      "logo": "logos/kyndryl.svg",
+      "homepage": "https://www.kyndryl.com/",
+      "positions": [
+        {
+          "title": "Senior Lead, Program Management",
+          "start": "2024-04",
+          "end": "2025-06",
+          "location": "Seattle, Washington",
+          "bullets": [
+            "Formalized PI planning across 12 teams by standardizing cross-team estimation and building shared capacity visibility; used Jira as the execution backbone and a purpose-built Google Sheets workbook as a flexible planning layer to prototype the process before migrating to permanent tooling.",
+            "Established cut-line communication protocols and trade-off frameworks that gave executives meaningful visibility into capacity and dependencies, enabling informed prioritization and reducing unstructured top-down pressure on teams.",
+            "Restructured the planning timeline by shifting preparation further left, enabling teams to enter each quarter with committed, well-defined work and improving delivery cadence predictability across the program."
+          ],
+          "locationType": "Remote"
+        }
+      ]
+    },
+    {
+      "id": "flexe",
+      "name": "Flexe",
+      "linkedinName": "Flexe",
+      "logo": "logos/flexe.png",
+      "homepage": "https://www.flexe.com/",
+      "logoFit": "cover",
+      "logoPosition": "center 58%",
+      "positions": [
+        {
+          "title": "Software Development Manager",
+          "start": "2022-01",
+          "end": "2023-08",
+          "location": "Seattle, Washington",
+          "bullets": [
+            "Directly managed two teams (Order Management and Item Master DevOps, ~6 engineers each) within a ~100-person engineering org; drove a replatforming effort from Ruby/Scala to Kotlin, reducing tech debt and improving platform scalability.",
+            "Reduced tech debt-driven support burden from 80% to 20% of team capacity, enabling sustained focus on feature development.",
+            "Inherited a team in chronic firefighting mode; stabilized operations within 3–6 months by providing air cover, enforcing severity-based SLAs, and transferring prioritization ownership back to the team."
+          ],
+          "locationType": "Remote"
+        }
+      ]
+    },
+    {
+      "id": "comcast",
+      "name": "Comcast",
+      "linkedinName": "Comcast",
+      "logo": "logos/comcast.svg",
+      "homepage": "https://corporate.comcast.com/",
+      "positions": [
+        {
+          "title": "Software Development Manager",
+          "start": "2019-12",
+          "end": "2021-11",
+          "location": "Philadelphia, PA",
+          "bullets": [
+            "Led a Scrum team within a 100+ microservice ecosystem and reduced customer-impacting errors by 50% in 3 months by tightening ownership, on-call practices, and incident review discipline.",
+            "Expanded scope to lead 3 Scrum teams (~15–20 engineers) supporting Comcast's customer service messaging platform, reduced custom workflow implementation time from 3 months to 1 month, and mentored and hired talent across remote teams."
+          ]
+        },
+        {
+          "title": "Sr. Technical Project Manager",
+          "start": "2016-07",
+          "end": "2019-11",
+          "location": "Philadelphia, PA",
+          "bullets": [
+            "Served as Scrum Master and program manager for the Comcast Messaging Platform (~10 DevOps engineers, 3–4 QA), responsible for all customer-facing SMS and email interactions across non-marketing channels.",
+            "Led the phased AWS migration of the messaging platform; completed bulk traffic cutover in 6 months and full migration in 10–12 months, beating the original 12–18 month target.",
+            "Integrated Comcast's AI assistant with the SMS platform, enabling customers to interact with automated troubleshooting workflows via interactive SMS dialog."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "radial",
+      "name": "Radial (formerly eBay Enterprise)",
+      "linkedinName": "Radial",
+      "logo": "logos/radial.png",
+      "homepage": "https://www.radial.com/",
+      "logoFit": "cover",
+      "positions": [
+        {
+          "title": "Senior Technical Project Manager",
+          "start": "2014-06",
+          "end": "2016-06",
+          "location": "King of Prussia, PA",
+          "bullets": [
+            "Returned as the company was divested from eBay and established as an independent business, managing corporate IT acquisition and conversion projects within SAP through the separation.",
+            "Held overall project management responsibility for moving roughly 500 to 1,000 employees to ADP payroll, coordinating Payroll, HR, Legal, and outside providers across requirements, communications, and training."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "perficient",
+      "name": "Perficient",
+      "linkedinName": "Perficient",
+      "logo": "logos/perficient.svg",
+      "homepage": "https://www.perficient.com/",
+      "positions": [
+        {
+          "title": "Project Manager, Microsoft National Business Unit",
+          "start": "2013-08",
+          "end": "2014-05",
+          "location": "Chicago, IL",
+          "bullets": [
+            "Managed SharePoint and Office 365 (now Microsoft 365) implementation projects for client organizations, delivered as a series of short, sequential engagements.",
+            "Delivered an internal SharePoint knowledge portal for JMS in Chicago, the largest engagement at roughly six months, from requirements gathering through implementation and training, with regular on-site work.",
+            "Supported testing and acceptance of the portal, including building the prototype of the Selenium test framework used on the site.",
+            "Assessed risk, estimated effort, drafted statements of work, tracked project budgets, and managed client expectations across geographically dispersed delivery teams."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gsi",
+      "name": "GSI Commerce (acquired by eBay)",
+      "linkedinName": "GSI Commerce",
+      "logo": "logos/gsi.png",
+      "homepage": "https://www.radial.com/",
+      "positions": [
+        {
+          "title": "Senior Technical Project Manager",
+          "start": "2011-01",
+          "end": "2013-07",
+          "location": "King of Prussia, PA",
+          "bullets": [
+            "Joined as a Project Manager and was promoted; one of the senior project managers on the Toys R Us account, handling its small-project pipeline and several of its most business-critical, technically complex projects, along with work for Sports Authority and Dick's Sporting Goods.",
+            "Delivered the Toys R Us omnichannel layaway program, rebuilding the payments flow to meet its requirements, and a complete rebuild of the Babies R Us baby registry.",
+            "Managed the full delivery lifecycle across engineering, operations, and business teams on platforms serving millions of users with strict peak-season uptime requirements."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lrn",
+      "name": "LRN",
+      "linkedinName": "LRN",
+      "logo": "logos/lrn.svg",
+      "homepage": "https://www.lrn.com/",
+      "positions": [
+        {
+          "title": "Technical Project Manager",
+          "start": "2006-01",
+          "end": "2011-01",
+          "location": "New York, NY",
+          "description": "Led e-learning SaaS platform delivery for Fortune 500 clients.",
+          "bullets": []
+        }
+      ]
+    },
+    {
+      "id": "aon",
+      "name": "Aon",
+      "linkedinName": "Aon",
+      "logo": "logos/aon.svg",
+      "homepage": "https://www.aon.com/",
+      "positions": [
+        {
+          "title": "Business Systems Engineer",
+          "start": "2004-09",
+          "end": "2005-09",
+          "location": "Bridgewater, NJ",
+          "description": "Built and configured client-facing HR benefits enrollment systems for corporate customers, including open enrollment, qualifying life event processing, and COBRA enrollment workflows.",
+          "bullets": []
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "label": "Program & Delivery Leadership",
+      "items": [
+        "Large-scale program management",
+        "PI planning & SAFe delivery",
+        "Portfolio & roadmap management",
+        "Risk & dependency management",
+        "Operating cadence design"
+      ]
+    },
+    {
+      "label": "Engineering Management",
+      "items": [
+        "Engineering team leadership",
+        "Hiring & performance management",
+        "Technical debt strategy",
+        "Incident management & SLA ownership",
+        "Team health & operating model"
+      ]
+    },
+    {
+      "label": "Technical Strategy & Platform",
+      "items": [
+        "Cloud migration strategy",
+        "CI/CD & DevOps",
+        "Platform modernization",
+        "Distributed systems & microservices",
+        "Technical risk management"
+      ]
+    },
+    {
+      "label": "Stakeholder & Executive Alignment",
+      "items": [
+        "Executive communication",
+        "Cross-org prioritization",
+        "Capacity planning & cut-line framing",
+        "Engineering-to-business translation",
+        "Global distributed team leadership"
+      ]
+    },
+    {
+      "label": "Applied AI & Automation",
+      "items": [
+        "LLM integration & API workflows",
+        "AI-augmented delivery & analysis",
+        "Prompt engineering & output quality",
+        "AI adoption strategy",
+        "LLM feasibility evaluation"
+      ]
+    }
+  ],
+  "resumeRules": {
+    "forbiddenTitles": [
+      "Lead Technical Project Manager",
+      "Sr. Technical Program Manager",
+      "Senior Technical Program Manager"
+    ],
+    "forbiddenPhrases": [
+      "one level below director"
+    ],
+    "allowedMergedRanges": []
+  },
+  "profile": {
+    "headline": "Technical Program Manager | Software Engineering Manager | Cloud Migration, Agile Delivery, Distributed Teams",
+    "summary": [
+      "I'm a software engineering and delivery leader with 20+ years of experience building high-performing teams, driving Agile transformation, and delivering complex technical programs at scale. I operate at the intersection of engineering execution and business outcomes, whether that means stabilizing a struggling team, standing up a planning framework across a 100-person org, or leading a large-scale cloud migration while keeping everything else moving.",
+      "My background spans both Engineering Manager and Technical Program Manager roles, which means I bring technical credibility, delivery discipline, and the ability to align engineers, product, and leadership around what matters. I lead through clarity, not authority, and I'm most effective in environments where the work is genuinely hard and the bar is high."
+    ],
+    "siteOnlyAbout": [
+      "After a stretch of progressively demanding roles, I took an intentional break: I built personal software projects in modern stacks, developed hands-on fluency with AI tools including ChatGPT, GitHub Copilot, and Claude, made music a serious pursuit, and spent meaningful time with family."
+    ],
+    "topSkills": [
+      "Technical Program Management",
+      "Engineering Management",
+      "Agile Project Management"
+    ]
+  },
+  "education": [
+    {
+      "school": "Lehigh University",
+      "degree": "Bachelor's Degree",
+      "field": "Science, Technology and Society",
+      "minor": "Computer Science",
+      "start": "2000",
+      "end": "2004"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Atlassian Agile Project Management Professional Certificate",
+      "issuer": "Atlassian",
+      "issued": "2024-02",
+      "onLinkedIn": true
+    },
+    {
+      "name": "GPT-4 Foundations: Building AI-Powered Apps",
+      "issuer": "LinkedIn Learning",
+      "onLinkedIn": true
+    },
+    {
+      "name": "Hands-On AI: Build a Generative Language Model from Scratch",
+      "issuer": "LinkedIn Learning",
+      "onLinkedIn": true
+    },
+    {
+      "name": "Enterprise Agile: Growing Scrum",
+      "issuer": "LinkedIn Learning",
+      "onLinkedIn": true
+    },
+    {
+      "name": "Learning Kubernetes",
+      "issuer": "LinkedIn Learning",
+      "onLinkedIn": true
+    },
+    {
+      "name": "Agile at Work: Building Your Agile Team",
+      "issuer": "LinkedIn Learning",
+      "onLinkedIn": true
+    }
+  ]
+}

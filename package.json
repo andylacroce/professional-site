@@ -14,6 +14,8 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "test:e2e:update-snapshots": "playwright test --update-snapshots",
+    "career:sync": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/career-sync.mjs",
+    "career:check": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/career-sync.mjs --check",
     "ci": "node scripts/run-ci.mjs"
   },
   "dependencies": {

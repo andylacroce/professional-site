@@ -1,58 +1,9 @@
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
+import careerData from "@/data/career.json";
+import type { Career } from "@/lib/career";
 
-const groups = [
-  {
-    label: "Program & Delivery Leadership",
-    items: [
-      "Large-scale program management",
-      "PI planning & SAFe delivery",
-      "Portfolio & roadmap management",
-      "Risk & dependency management",
-      "Operating cadence design",
-    ],
-  },
-  {
-    label: "Engineering Management",
-    items: [
-      "Engineering team leadership",
-      "Hiring & performance management",
-      "Technical debt strategy",
-      "Incident management & SLA ownership",
-      "Team health & operating model",
-    ],
-  },
-  {
-    label: "Technical Strategy & Platform",
-    items: [
-      "Cloud migration strategy",
-      "CI/CD & DevOps",
-      "Platform modernization",
-      "Distributed systems & microservices",
-      "Technical risk management",
-    ],
-  },
-  {
-    label: "Stakeholder & Executive Alignment",
-    items: [
-      "Executive communication",
-      "Cross-org prioritization",
-      "Capacity planning & cut-line framing",
-      "Engineering-to-business translation",
-      "Global distributed team leadership",
-    ],
-  },
-  {
-    label: "Applied AI & Automation",
-    items: [
-      "LLM integration & API workflows",
-      "AI-augmented delivery & analysis",
-      "Prompt engineering & output quality",
-      "AI adoption strategy",
-      "LLM feasibility evaluation",
-    ],
-  },
-];
+const groups = (careerData as Career).skills;
 
 export default function Skills() {
   return (

@@ -12,6 +12,14 @@ This postbuild script rewrites root-relative asset paths in the exported HTML so
 
 If you ever touch this script, verify the fix by building, then running the real E2E suite against the static target (`npm run build && npm run test:e2e`) — a component's `onClick` handlers silently not firing is the symptom, and it will NOT show up as a build error or an obvious visual difference.
 
+## Career data: single source of truth
+
+`src/data/career.json` holds employers, titles, dates, locations, published bullets, and skills. `Experience.tsx` and `Skills.tsx` render from it; never hardcode that content in a component. The same file feeds the LinkedIn paste guide (`career/linkedin.md`), a facts table (`career/facts.md`), and the resume rules (`resumeRules`) that Andy's resume build script enforces.
+
+- To change any role, title, date, location, bullet, or skill: edit `career.json`, run `npm run career:sync`, commit the regenerated `career/` files with it. `src/lib/__tests__/career.test.ts` fails if the data is inconsistent (overlapping stints, wrong order, forbidden titles, LinkedIn descriptions over 2,000 characters) or if `career/` is stale, so CI catches a missed sync.
+- `career/linkedin.md` is the hand-off for LinkedIn: after a merge, copy the changed entries into LinkedIn. `career/facts.md` is what the master resume in Claude's project memory must match.
+- `scripts/career-sync.mjs` imports TypeScript directly (Node 22.18+ type stripping), so `src/lib/career.ts` must stay free of enums and namespaces.
+
 ## Testing & CI
 
 - **Unit/component tests**: Vitest + React Testing Library, colocated in `src/**/__tests__/`. 90% coverage gate (statements/branches/functions/lines) enforced in `vitest.config.mts`. `src/app/layout.tsx` is excluded from coverage — it's the root `<html>/<body>` shell with `next/font`, impractical to mount with RTL, and is exercised for real by every E2E run instead.

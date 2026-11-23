@@ -5,7 +5,7 @@ import { ExternalLinkIcon } from "./icons";
 const projects = [
   {
     name: "Character Chatbot Generator",
-    siteUrl: "https://character-chatbot-generator.vercel.app/",
+    siteUrl: "https://portrayal-ai.vercel.app/",
     githubUrl: "https://github.com/andylacroce/character-chatbot-generator",
     githubSlug: "character-chatbot-generator",
     description:

@@ -142,7 +142,7 @@ Description:
 
 ```text
 • Managed SharePoint and Office 365 (now Microsoft 365) implementation projects for client organizations, delivered as a series of short, sequential engagements.
-• Delivered an internal SharePoint knowledge portal for JMS in Chicago, the largest engagement at roughly six months, from requirements gathering through implementation and training, with regular on-site work.
+• Delivered an internal SharePoint knowledge portal for JLL in Chicago, the largest engagement at roughly six months, from requirements gathering through implementation and training, with regular on-site work.
 • Supported testing and acceptance of the portal, including building the prototype of the Selenium test framework used on the site.
 • Assessed risk, estimated effort, drafted statements of work, tracked project budgets, and managed client expectations across geographically dispersed delivery teams.
 ```

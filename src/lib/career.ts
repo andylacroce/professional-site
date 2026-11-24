@@ -37,6 +37,7 @@ export type Profile = {
   headline: string;
   summary: string[]; // shared: LinkedIn Summary and the first paragraphs of the site About
   siteOnlyAbout: string[]; // extra About paragraphs that stay off LinkedIn
+  linkedinOnlyAbout: string[]; // extra LinkedIn About paragraphs that stay off the site
   topSkills: string[]; // the three skills to pin on LinkedIn
 };
 
@@ -161,7 +162,7 @@ export function renderLinkedIn(career: Career): string {
     ...fence(career.profile.headline),
     "## Profile > About",
     "",
-    ...fence(career.profile.summary.join("\n\n")),
+    ...fence([...career.profile.summary, ...career.profile.linkedinOnlyAbout].join("\n\n")),
   ];
   for (const company of career.companies) {
     for (const position of company.positions) {

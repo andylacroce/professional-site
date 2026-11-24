@@ -11,9 +11,13 @@ Senior Technical Program Manager | Software Engineering Manager | Cloud Migratio
 ## Profile > About
 
 ```text
-I'm a software engineering and delivery leader with 20+ years of experience building high-performing teams, driving Agile transformation, and delivering complex technical programs at scale. I operate at the intersection of engineering execution and business outcomes, whether that means stabilizing a struggling team, standing up a planning framework across a 100-person org, or leading a large-scale cloud migration while keeping everything else moving.
+I'm a technical program manager and engineering manager with 20 years in software delivery. I came up through project management. I've led programs and I've run engineering teams, so I plan work knowing how teams actually deliver, and I run teams knowing what leadership needs to see.
 
-My background spans both Engineering Manager and Technical Program Manager roles, which means I bring technical credibility, delivery discipline, and the ability to align engineers, product, and leadership around what matters. I lead through clarity, not authority, and I'm most effective in environments where the work is genuinely hard and the bar is high.
+The part of the job I care most about is figuring out why work is stuck and getting it moving again. Usually that means clear priorities, honest trade-offs with leadership, and room for the team to own its decisions. I'd rather the team own the work than have me be the hero on it.
+
+I still build. I work hands-on with AI tools: I set the design, require tests, and review what comes back.
+
+I'm looking for technical program manager and engineering manager roles.
 ```
 
 ## Experience > Senior Lead, Program Management at Kyndryl

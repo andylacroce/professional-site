@@ -1,4 +1,4 @@
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 
@@ -65,6 +65,8 @@ ${output}`);
 }
 
 async function main() {
+  // No-op when cached; fixes "Executable doesn't exist" after a Playwright bump.
+  spawnSync("npx", ["playwright", "install", ...(process.env.CI ? ["chromium"] : ["chromium", "firefox", "webkit"])], { shell: true, stdio: "ignore" });
   const wallStart = Date.now();
   const results = [];
   let stoppedAt = null;

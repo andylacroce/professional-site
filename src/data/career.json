@@ -106,6 +106,7 @@
           "start": "2013-08",
           "end": "2014-05",
           "location": "Chicago, IL",
+          "locationType": "Remote",
           "bullets": [
             "Managed SharePoint and Office 365 (now Microsoft 365) implementation projects for client organizations, delivered as a series of short, sequential engagements.",
             "Delivered an internal SharePoint knowledge portal for JMS in Chicago, the largest engagement at roughly six months, from requirements gathering through implementation and training, with regular on-site work.",
@@ -147,6 +148,7 @@
           "start": "2006-01",
           "end": "2011-01",
           "location": "New York, NY",
+          "locationType": "Remote",
           "description": "Led e-learning SaaS platform delivery for Fortune 500 clients.",
           "bullets": []
         }

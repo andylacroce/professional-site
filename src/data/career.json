@@ -237,12 +237,15 @@
   "profile": {
     "headline": "Senior Technical Program Manager | Software Engineering Manager | Cloud Migration, Agile Delivery, AI Enablement",
     "summary": [
-      "I've been both the program manager and the engineering manager for the same platform. At Comcast I was the program manager for the customer messaging platform, then became the engineering manager for the teams that supported it. Before that I came up through project management, spending about a decade delivering e-learning and e-commerce platforms. After Comcast I managed teams at Flexe and then returned to program leadership at Skytap.",
-      "At Flexe I inherited a team in constant firefighting mode and stabilized it within a few months by giving engineers air cover, clear severity SLAs, and ownership of their own priorities.",
-      "I've also stayed close to the code. I set the design and architecture, insist on tests, and review the code my AI tools produce. Portrayal, a conversational app on the Claude API, is one result."
-],
+      "I'm a technical program manager and engineering manager with 20 years in software delivery. I came up through project management. I've led programs and I've run engineering teams, so I plan work knowing how teams actually deliver, and I run teams knowing what leadership needs to see.",
+      "The part of the job I care most about is figuring out why work is stuck and getting it moving again. Usually that means clear priorities, honest trade-offs with leadership, and room for the team to own its decisions. I'd rather the team own the work than have me be the hero on it."
+    ],
     "siteOnlyAbout": [
-      "After a stretch of progressively demanding roles, I took an intentional break: I built personal software projects in modern stacks, developed hands-on fluency with AI tools including ChatGPT, GitHub Copilot, and Claude, made music a serious pursuit, and spent meaningful time with family."
+      "After Kyndryl I took an intentional break. I spent it building software with AI tools, where I set the design, require tests, and review what comes back. I also made music a serious pursuit and spent real time with family."
+    ],
+    "linkedinOnlyAbout": [
+      "I still build. I work hands-on with AI tools: I set the design, require tests, and review what comes back.",
+      "I'm looking for technical program manager and engineering manager roles."
     ],
     "topSkills": [
       "Technical Program Management",

@@ -98,6 +98,8 @@ describe("formatting", () => {
     noCity.companies[0].positions[0].location = undefined;
     expect(renderLinkedIn(noCity)).toContain("Location: (not set) | Location type: Remote");
     expect(doc).toContain(career.profile.headline);
+    for (const paragraph of career.profile.linkedinOnlyAbout) expect(doc).toContain(paragraph);
+    for (const paragraph of career.profile.siteOnlyAbout) expect(doc).not.toContain(paragraph);
     expect(doc).toContain("Minor in Computer Science");
 
     const pending = clone();

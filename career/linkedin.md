@@ -5,7 +5,7 @@ Open the PR, read its "LinkedIn: paste these" list, and paste only those section
 ## Profile > Headline
 
 ```text
-Technical Program Manager | Software Engineering Manager | Cloud Migration, Agile Delivery, Distributed Teams
+Senior Technical Program Manager | Software Engineering Manager | Cloud Migration, Agile Delivery, AI Enablement
 ```
 
 ## Profile > About

@@ -11,9 +11,9 @@ Senior Technical Program Manager | Software Engineering Manager | Cloud Migratio
 ## Profile > About
 
 ```text
-I'm a software engineering and delivery leader with 20+ years of experience building high-performing teams, driving Agile transformation, and delivering complex technical programs at scale. I operate at the intersection of engineering execution and business outcomes, whether that means stabilizing a struggling team, standing up a planning framework across a 100-person org, or leading a large-scale cloud migration while keeping everything else moving.
+I'm a software engineering and delivery leader with 20+ years of experience. I led the AWS migration of Comcast's messaging platform in 10 to 12 months against a 12 to 18 month plan, and I rebuilt quarterly planning across 12 teams at Kyndryl. I operate at the intersection of engineering execution and business outcomes, whether that means stabilizing a team stuck in firefighting mode, rebuilding a planning process that isn't scaling, or running a large cloud migration while keeping everything else moving.
 
-My background spans both Engineering Manager and Technical Program Manager roles, which means I bring technical credibility, delivery discipline, and the ability to align engineers, product, and leadership around what matters. I lead through clarity, not authority, and I'm most effective in environments where the work is genuinely hard and the bar is high.
+My background spans both Engineering Manager and Technical Program Manager roles, which means I bring technical credibility, delivery discipline, and the ability to align engineers, product, and leadership around what matters. I also build with AI hands-on, including Portrayal, a conversational app on the Claude API, and apply those tools to planning and communication in program work. I lead through clarity, not authority, and I'm most effective in environments where the work is genuinely hard and the bar is high.
 ```
 
 ## Experience > Senior Lead, Program Management at Kyndryl

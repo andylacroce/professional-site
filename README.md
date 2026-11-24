@@ -37,11 +37,21 @@ Built from scratch with Next.js 16, Tailwind CSS v4, and TypeScript. No template
 ## Structure
 
 ```text
+career/
+└── linkedin.md          # Generated LinkedIn paste guide (do not edit by hand)
+
+scripts/
+└── career-sync.mjs      # Regenerates career/ from src/data/career.json
+
 public/
 ├── logos/               # Company logos used in Experience
 └── profile-pic.jpg      # Hero image and social preview photo
 
 src/
+├── data/
+│   └── career.json       # Single source of truth: roles, dates, bullets, skills, profile
+├── lib/
+│   └── career.ts         # Pure helpers: validation and LinkedIn rendering
 ├── app/
 │   ├── layout.tsx        # Metadata, global CSS
 │   ├── page.tsx          # Root page, composes all sections
@@ -82,8 +92,36 @@ npm run test:watch                # Unit tests in watch mode
 npm run test:coverage             # Unit tests with the 90% coverage gate
 npm run test:e2e                  # Run the full Playwright suite (needs a prior `npm run build` — see below)
 npm run test:e2e:update-snapshots # Regenerate visual regression baselines
+npm run career:sync               # Regenerate career/linkedin.md from src/data/career.json
+npm run career:check              # Fail if career data is inconsistent or career/ is stale
 npm run ci                        # lint -> typecheck -> test:coverage -> build -> test:e2e, with a summary at the end
 ```
+
+## Career data
+
+Everything about the work history lives in one file, `src/data/career.json`: companies, titles, dates, locations, published bullets, skills, education, certifications, and the profile headline and summary. Nothing is duplicated by hand.
+
+- **The site** renders from it: `Experience.tsx` and `Skills.tsx` read the file directly, so a content change never touches a component.
+- **LinkedIn** is fed from it too. `npm run career:sync` generates `career/linkedin.md`, a copy-paste guide laid out in the order LinkedIn's edit forms ask for things (headline, About, each role, skills, education, certifications). Each field sits in its own code block with a copy button.
+- **A resume** can be built from the same data. This repo doesn't contain the resume tooling, but `career.json` includes a `resumeRules` block (titles that must never appear) that is validated here so the site, LinkedIn, and any resume stay consistent.
+
+### Changing something
+
+1. Edit `src/data/career.json`.
+2. Run `npm run career:sync` to regenerate `career/linkedin.md`.
+3. Commit both together. A change is not done until LinkedIn has been updated by hand, since there is no automated way to push to it; paste only the sections that changed.
+
+### What keeps it honest
+
+`npm run career:check` (also part of the unit tests, so `npm run ci` and remote CI run it) fails when:
+
+- two roles overlap in time, or a role ends before it starts (sharing a boundary month is fine)
+- roles or companies are not ordered newest first
+- a role uses a title listed in `resumeRules.forbiddenTitles`
+- a LinkedIn description would exceed LinkedIn's 2,000-character limit
+- `career/linkedin.md` no longer matches what the data would generate
+
+`scripts/career-sync.mjs` imports TypeScript directly (Node 22.18+ type stripping), so `src/lib/career.ts` must avoid enums and namespaces.
 
 ## Testing
 

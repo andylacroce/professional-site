@@ -123,6 +123,7 @@ describe("formatting", () => {
 
     const noLocation = clone();
     noLocation.companies.find((c) => c.id === "lrn")!.positions[0].location = undefined;
+    noLocation.companies.find((c) => c.id === "lrn")!.positions[0].locationType = undefined;
     expect(renderLinkedIn(noLocation)).toContain("Location: (not set)\n");
   });
 });

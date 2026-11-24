@@ -136,7 +136,7 @@ Company: pick **Perficient** from the list
 
 Dates: August 2013 to May 2014
 
-Location: Chicago, IL
+Location: Chicago, IL | Location type: Remote
 
 Description:
 
@@ -181,7 +181,7 @@ Company: pick **LRN** from the list
 
 Dates: January 2006 to January 2011
 
-Location: New York, NY
+Location: New York, NY | Location type: Remote
 
 Description:
 

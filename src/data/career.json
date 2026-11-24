@@ -237,9 +237,10 @@
   "profile": {
     "headline": "Senior Technical Program Manager | Software Engineering Manager | Cloud Migration, Agile Delivery, AI Enablement",
     "summary": [
-      "I'm a software engineering and delivery leader with 20+ years of experience. I led the AWS migration of Comcast's messaging platform in 10 to 12 months against a 12 to 18 month plan, and I rebuilt quarterly planning across 12 teams at Kyndryl. I operate at the intersection of engineering execution and business outcomes, whether that means stabilizing a team stuck in firefighting mode, rebuilding a planning process that isn't scaling, or running a large cloud migration while keeping everything else moving.",
-      "My background spans both Engineering Manager and Technical Program Manager roles, which means I bring technical credibility, delivery discipline, and the ability to align engineers, product, and leadership around what matters. I also build with AI hands-on, including Portrayal, a conversational app on the Claude API, and apply those tools to planning and communication in program work. I lead through clarity, not authority, and I'm most effective in environments where the work is genuinely hard and the bar is high."
-    ],
+      "For 20+ years I've worked on the part of engineering that sits between the code and the business: getting teams clear on what matters, what's in the way, and what will actually ship. As both an Engineering Manager and a Technical Program Manager, I've often picked up work that was stuck, like a team in constant firefighting mode, a planning process that wasn't scaling, or a large cloud migration.",
+      "Two examples. At Comcast I led the AWS migration of the messaging platform and finished well ahead of the original timeline. At Kyndryl I rebuilt quarterly planning across 12 teams so leaders could see capacity and trade-offs clearly.",
+      "How I work: I give teams air cover and clear priorities, then let them own the decisions. I'd rather the team own the work than have me be the hero on it. I'm also building with AI hands-on, including Portrayal, a conversational app on the Claude API, and I use those tools to improve planning and communication."
+],
     "siteOnlyAbout": [
       "After a stretch of progressively demanding roles, I took an intentional break: I built personal software projects in modern stacks, developed hands-on fluency with AI tools including ChatGPT, GitHub Copilot, and Claude, made music a serious pursuit, and spent meaningful time with family."
     ],

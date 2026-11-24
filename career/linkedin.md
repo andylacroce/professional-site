@@ -11,9 +11,11 @@ Senior Technical Program Manager | Software Engineering Manager | Cloud Migratio
 ## Profile > About
 
 ```text
-I'm a software engineering and delivery leader with 20+ years of experience building high-performing teams, driving Agile transformation, and delivering complex technical programs at scale. I operate at the intersection of engineering execution and business outcomes, whether that means stabilizing a struggling team, standing up a planning framework across a 100-person org, or leading a large-scale cloud migration while keeping everything else moving.
+I've been both the program manager and the engineering manager on the same kinds of messy delivery problems. I started in project management, spent about a decade delivering e-learning and e-commerce platforms, then moved into program management at Comcast, where I went on to run engineering teams as a software development manager. After managing teams at Flexe, I returned to program leadership at Skytap.
 
-My background spans both Engineering Manager and Technical Program Manager roles, which means I bring technical credibility, delivery discipline, and the ability to align engineers, product, and leadership around what matters. I lead through clarity, not authority, and I'm most effective in environments where the work is genuinely hard and the bar is high.
+At Flexe I inherited a team in constant firefighting mode and stabilized it within a few months by giving engineers air cover, clear severity SLAs, and ownership of their own priorities.
+
+I've also stayed close to the code. I set the design and architecture, insist on tests, and review the code my AI tools produce. Portrayal, a conversational app on the Claude API, is one result.
 ```
 
 ## Experience > Senior Lead, Program Management at Kyndryl
